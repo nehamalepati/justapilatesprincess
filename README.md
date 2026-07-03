@@ -5,10 +5,11 @@ The website for [justapilatesprincess.com](https://justapilatesprincess.com) —
 ## What's here
 
 | File | What it is |
-|---|---|
+| --- | --- |
 | `index.html` | Homepage — hero, the three pillars, and the "morning → moonlight" program cards |
 | `library.html` | Searchable exercise library (search + category filters + detail pop-ups) |
-| `contact.html` | Booking page — form sends straight to justapilatesprincess@gmail.com |
+| `contact.html` | Booking page — form sends straight to `justapilatesprincess@gmail.com` |
+| `merch.html` | Merch shop — cards start as "coming soon"; swap in real shop links when you're ready (there's a how-to comment in the file) |
 | `exercises.js` | **The exercise data — this is the file you'll edit most.** Every exercise's steps, cues, and video live here |
 | `styles.css` | All styling (colors and fonts are defined at the top in `:root`) |
 | `main.js` | Nav, scroll animations, and the library search logic |
@@ -17,7 +18,7 @@ The website for [justapilatesprincess.com](https://justapilatesprincess.com) —
 ## Before you launch — 3 small things
 
 1. **Add your logo.** Save your logo image as `images/logo.jpg`. (The site works without it, but it's cuter with it.)
-2. **Activate the contact form.** The form uses [FormSubmit](https://formsubmit.co) (free, no account). The **first time** someone submits it, FormSubmit emails justapilatesprincess@gmail.com a confirmation link — click it once and all future submissions arrive normally. Do a test submission yourself to trigger this.
+2. **Activate the contact form.** The form uses [FormSubmit](https://formsubmit.co) (free, no account). The **first time** someone submits it, FormSubmit emails `justapilatesprincess@gmail.com` a confirmation link — click it once and all future submissions arrive normally. Do a test submission yourself to trigger this.
 3. **Make the copy yours.** I wrote all the class descriptions and exercise instructions in your voice as a starting point — read through `index.html` and especially `exercises.js` and tweak anything that doesn't sound like you.
 
 ## Adding an exercise

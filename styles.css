@@ -500,6 +500,52 @@ section { padding: 5.5rem 0; }
 }
 .no-results .telugu { font-size: 1.6rem; display: block; margin-bottom: 0.5rem; color: var(--violet); }
 
+/* ---------- merch ---------- */
+
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.4rem;
+}
+
+.merch-card {
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.merch-card .cat {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--marigold);
+}
+.merch-card p { color: var(--ink-soft); font-size: 0.93rem; flex-grow: 1; }
+
+.merch-art {
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  margin-bottom: 1.1rem;
+  display: grid;
+  place-items: center;
+  font-size: 3rem;
+  background:
+    radial-gradient(18rem 12rem at 80% 0%, rgba(232, 201, 138, 0.35), transparent 60%),
+    linear-gradient(135deg, var(--lilac-tint), var(--lilac-deep));
+}
+.merch-card img.merch-art { object-fit: cover; }
+
+.merch-btn { margin-top: 1.1rem; align-self: flex-start; }
+.merch-btn[disabled] {
+  opacity: 0.55;
+  cursor: default;
+}
+.merch-btn[disabled]:hover { transform: none; background: transparent; }
+
 /* ---------- exercise detail modal ---------- */
 
 .modal-backdrop {
