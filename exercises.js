@@ -4,7 +4,8 @@
      name        — what it's called
      nickname    — optional italic subtitle (sanskrit / desi / cute name)
      category    — one of: "Desi-lates", "Restorative", "Stretch & Recovery",
-                   "Morning Mobility", "Moonlight Stretch", "Prenatal", "Mommy & Me"
+                   "Morning Mobility", "Slowburn", "Moonlight Stretch",
+                   "Prenatal", "Mommy & Me"
      focus       — short "what it works" line shown on the card
      level       — Beginner / All levels / Intermediate
      duration    — rough time or rep guidance
@@ -48,6 +49,40 @@ const EXERCISES = [
       "Inhale and restack from the tailbone up, returning palms to heart."
     ],
     cue: "Peel down like you're unrolling a silk saree — one fold at a time, never dumped all at once.",
+    videoId: ""
+  },
+  {
+    name: "Standing Leg Float",
+    nickname: "balance, but make it slowburn",
+    category: "Slowburn",
+    focus: "Balance · glutes · deep core",
+    level: "All levels",
+    duration: "45 seconds per side",
+    steps: [
+      "Stand tall, feet hip-width, and take a breath to find your safe neutral — ribs over hips, weight even through both feet.",
+      "Slowly pour your weight into your left foot and float your right knee up toward hip height.",
+      "Stay for three slow breaths — arms out like wings, or palms together at your heart.",
+      "Exhale: reach the floating leg long behind you and hover the toes, hinging slightly forward.",
+      "Wobbles are welcome. Come back to center with control and switch sides."
+    ],
+    cue: "Wobbling isn't failing — it's your balance literally being written into your nervous system.",
+    videoId: ""
+  },
+  {
+    name: "Slow-Motion Side Kick Series",
+    nickname: "the classic, at half speed",
+    category: "Slowburn",
+    focus: "Outer hips · obliques · control",
+    level: "All levels",
+    duration: "8 reps per move, per side",
+    steps: [
+      "Lie on your side, propped on your forearm or with your head resting on your arm — whole body in one long line.",
+      "Float your top leg to hip height and pause. This is home base; find your safe neutral here.",
+      "Sweep the leg forward for two slow counts, then back for two — without letting your ribs or hips rock.",
+      "Add slow circles: four one way, four the other, like you're stirring chai with your toes.",
+      "Breathe the whole time. If you're shaking by the last rep, that's the slowburn doing exactly its job. Switch sides."
+    ],
+    cue: "Move like you're underwater — slow is where the burn lives, and you never have to hold your breath to earn it.",
     videoId: ""
   },
   {

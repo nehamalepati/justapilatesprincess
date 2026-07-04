@@ -1,5 +1,16 @@
 /* just a pilates princess — site behavior */
 
+// ---------- dark mode toggle ----------
+// initial theme is stamped on <html> by the inline script in each page's head
+const themeToggle = document.querySelector(".theme-toggle");
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+  });
+}
+
 // ---------- mobile nav ----------
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");

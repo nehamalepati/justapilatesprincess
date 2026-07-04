@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>exercise library — just a pilates princess</title>
   <meta name="description" content="Search Neha's exercise library — step-by-step instructions and videos for desi-lates, restorative, prenatal, mommy &amp; me, and stretch &amp; recovery movements.">
+  <script>(function(){var t=localStorage.getItem("theme");if(!t)t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t);})();</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%91%91%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,19 +17,23 @@
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="index.html">
-      <img src="images/logo.jpg" alt="Just a Pilates Princess logo" onerror="this.style.display='none'">
-      <span class="brand-name">Just a Pilates Princess<small>నేహా · Neha</small></span>
+      <img src="images/logo.jpg" alt="just a pilates princess logo" onerror="this.style.display='none'">
+      <span class="brand-name">just a pilates princess<small><span class="telugu">నేహా</span> · neha</small></span>
     </a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <ul class="nav-links">
+      <li><a href="index.html">home</a></li>
+      <li><a href="flows.html">the flows</a></li>
+      <li><a href="library.html" aria-current="page">exercise library</a></li>
+      <li><a href="merch.html">merch</a></li>
+      <li><a href="contact.html" class="nav-cta">book a session</a></li>
+    </ul>
+    <button class="theme-toggle" aria-label="toggle dark mode">
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5 A 8.5 8.5 0 1 1 9.5 4 A 7 7 0 0 0 20 14.5 Z"/></svg>
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.3" y1="5.3" x2="7" y2="7"/><line x1="17" y1="17" x2="18.7" y2="18.7"/><line x1="18.7" y1="5.3" x2="17" y2="7"/><line x1="7" y1="17" x2="5.3" y2="18.7"/></svg>
+    </button>
+    <button class="nav-toggle" aria-label="open menu" aria-expanded="false">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#flows">The Flows</a></li>
-      <li><a href="library.html" aria-current="page">Exercise Library</a></li>
-      <li><a href="merch.html">Merch</a></li>
-      <li><a href="contact.html" class="nav-cta">Book a Session</a></li>
-    </ul>
   </div>
 </header>
 
