@@ -121,7 +121,7 @@ h3 { font-size: 1.45rem; }
    (gold name, purple brand — used in the hero eyebrow and footers) */
 .name-lockup {
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
   gap: 0.55rem;
 }
