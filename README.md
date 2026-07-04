@@ -16,10 +16,11 @@ The website for [justapilatesprincess.com](https://justapilatesprincess.com) —
 | `main.js` | Nav, scroll animations, and the library search logic |
 | `images/` | Put `logo.jpg` here (your circular logo) |
 
-## Before you launch — 2 small things
+## Before you launch — 1 small thing
 
-1. **Activate the contact form.** The form uses [FormSubmit](https://formsubmit.co) (free, no account). The **first time** someone submits it, FormSubmit emails `justapilatesprincess@gmail.com` a confirmation link — click it once and all future submissions arrive normally. Do a test submission yourself to trigger this.
-2. **Make the copy yours.** I wrote all the class descriptions and exercise instructions in your voice as a starting point — read through `index.html` and especially `exercises.js` and tweak anything that doesn't sound like you.
+1. **Make the copy yours.** I wrote all the class descriptions and exercise instructions in your voice as a starting point — read through `index.html` and especially `exercises.js` and tweak anything that doesn't sound like you.
+
+(The contact form runs on [FormSubmit](https://formsubmit.co) and is already activated — submissions land in `justapilatesprincess@gmail.com`.)
 
 ## Dark mode
 

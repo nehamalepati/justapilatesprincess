@@ -150,7 +150,7 @@ section { padding: 5.5rem 0; }
   height: 42px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 0 3px rgba(232, 201, 138, 0.35);
+  box-shadow: 0 0 0 1.5px var(--marigold-soft);
 }
 
 /* ---------- header / nav ---------- */
@@ -334,9 +334,11 @@ section { padding: 5.5rem 0; }
   height: clamp(180px, 22vw, 300px);
   border-radius: 50%;
   object-fit: cover;
+  /* crisp coin ring: paper gap, hairline gold, soft drop */
   box-shadow:
-    0 0 0 8px rgba(232, 201, 138, 0.28),
-    0 24px 60px rgba(51, 34, 75, 0.25);
+    0 0 0 6px var(--paper),
+    0 0 0 7.5px var(--marigold),
+    0 24px 60px rgba(51, 34, 75, 0.18);
 }
 
 .hero .crown {
@@ -567,22 +569,23 @@ section { padding: 5.5rem 0; }
   padding: 5.5rem 0;
 }
 .moonlight .eyebrow { color: var(--marigold-soft); }
-.moonlight .lede { color: #bfaedd; }
+.moonlight .lede { color: #bfaedd; margin-top: 0.9rem; max-width: 46ch; }
+.moonlight .hero-ctas { margin-top: 2.2rem; }
 .moonlight-inner {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 3rem;
+  gap: 4rem;
 }
 .moon-mark { color: var(--marigold-soft); }
 .moon-mark img {
-  width: 230px;
-  height: 230px;
+  width: 210px;
+  height: 210px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow:
-    0 0 0 8px rgba(232, 201, 138, 0.25),
-    0 0 70px rgba(232, 201, 138, 0.25);
+    0 0 0 2px var(--marigold-soft),
+    0 0 55px rgba(232, 201, 138, 0.22);
 }
 
 /* ---------- exercise library ---------- */
@@ -726,7 +729,7 @@ section { padding: 5.5rem 0; }
   aspect-ratio: 1;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 0 4px rgba(232, 201, 138, 0.4), 0 10px 24px rgba(51, 34, 75, 0.2);
+  box-shadow: 0 0 0 1.5px var(--marigold-soft), 0 10px 24px rgba(51, 34, 75, 0.18);
 }
 
 .merch-btn { margin-top: 1.1rem; align-self: flex-start; }
@@ -813,7 +816,7 @@ section { padding: 5.5rem 0; }
   object-fit: cover;
   display: block;
   margin: 0 auto 0.7rem;
-  box-shadow: 0 0 0 3px rgba(232, 201, 138, 0.35);
+  box-shadow: 0 0 0 1.5px var(--marigold-soft);
 }
 
 .modal h4 {
@@ -880,7 +883,7 @@ section { padding: 5.5rem 0; }
   border-radius: 50%;
   object-fit: cover;
   justify-self: center;
-  box-shadow: 0 0 0 4px rgba(232, 201, 138, 0.3);
+  box-shadow: 0 0 0 1.5px var(--marigold-soft);
 }
 
 .field { display: grid; gap: 0.45rem; }
@@ -950,7 +953,7 @@ main:has(.moonlight:last-child) + .site-footer { margin-top: 0; }
   height: 38px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 0 2px rgba(232, 201, 138, 0.35);
+  box-shadow: 0 0 0 1.5px var(--marigold-soft);
 }
 .footer-brand .telugu {
   text-transform: none;
