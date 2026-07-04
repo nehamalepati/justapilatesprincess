@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book a Session — Just a Pilates Princess</title>
+  <title>book a session — just a pilates princess</title>
   <meta name="description" content="Book a private pilates session, mommy &amp; me class, prenatal flow, or group event with Neha.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%91%91%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Karla:wght@400;500;700&family=Noto+Serif+Telugu:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Karla:wght@400;500;700&family=Suravaram&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -52,7 +52,7 @@
       </div>
 
       <form class="booking-form" action="https://formsubmit.co/justapilatesprincess@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="✨ New booking request — justapilatesprincess.com">
+        <input type="hidden" name="_subject" value="✨ new booking request — justapilatesprincess.com">
         <input type="hidden" name="_captcha" value="false">
         <input type="text" name="_honey" style="display:none">
 
@@ -69,20 +69,29 @@
         <div class="field">
           <label for="f-type">What are you booking?</label>
           <select id="f-type" name="session type" required>
-            <option value="" disabled selected>Choose one…</option>
-            <option>Private 1:1 session</option>
-            <option>Mommy &amp; me</option>
-            <option>Prenatal pilates</option>
-            <option>Moonlight stretch</option>
-            <option>Morning mobility</option>
-            <option>Group event (bridal, shower, girls' night…)</option>
-            <option>Something else / just saying hi</option>
+            <option value="" disabled selected>choose one…</option>
+            <option>private 1:1 session</option>
+            <option>mommy &amp; me</option>
+            <option>prenatal pilates</option>
+            <option>moonlight stretch</option>
+            <option>morning mobility</option>
+            <option>group event (bridal, shower, girls' night…)</option>
+            <option>something else / just saying hi</option>
           </select>
         </div>
 
         <div class="field">
+          <label for="f-code">Discount code <span class="optional">(optional)</span></label>
+          <div class="code-row">
+            <input id="f-code" type="text" name="discount code" placeholder="e.g. princess10" autocomplete="off">
+            <button type="button" class="btn btn-ghost" id="apply-code">Apply</button>
+          </div>
+          <p class="code-msg" id="code-msg" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
           <label for="f-msg">Tell me more</label>
-          <textarea id="f-msg" name="message" placeholder="Where you're at, what you're hoping for, preferred days &amp; times, anything I should know (injuries, trimester, tiny co-star's age…)" required></textarea>
+          <textarea id="f-msg" name="message" placeholder="where you're at, what you're hoping for, preferred days &amp; times, anything i should know (injuries, trimester, tiny co-star's age…)" required></textarea>
         </div>
 
         <button class="btn btn-solid" type="submit">Send my request ✨</button>

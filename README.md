@@ -6,7 +6,7 @@ The website for [justapilatesprincess.com](https://justapilatesprincess.com) —
 
 | File | What it is |
 | --- | --- |
-| `index.html` | Homepage — hero, the three pillars, and the "morning → moonlight" program cards |
+| `index.html` | Homepage — hero, the three pillars, the "morning → moonlight" program cards, and your credentials + rotating testimonials |
 | `library.html` | Searchable exercise library (search + category filters + detail pop-ups) |
 | `contact.html` | Booking page — form sends straight to `justapilatesprincess@gmail.com` |
 | `merch.html` | Merch shop — cards start as "coming soon"; swap in real shop links when you're ready (there's a how-to comment in the file) |
@@ -20,6 +20,14 @@ The website for [justapilatesprincess.com](https://justapilatesprincess.com) —
 1. **Add your logo.** Save your logo image as `images/logo.jpg`. (The site works without it, but it's cuter with it.)
 2. **Activate the contact form.** The form uses [FormSubmit](https://formsubmit.co) (free, no account). The **first time** someone submits it, FormSubmit emails `justapilatesprincess@gmail.com` a confirmation link — click it once and all future submissions arrive normally. Do a test submission yourself to trigger this.
 3. **Make the copy yours.** I wrote all the class descriptions and exercise instructions in your voice as a starting point — read through `index.html` and especially `exercises.js` and tweak anything that doesn't sound like you.
+
+## Discount codes
+
+The booking form has a discount-code field. The codes live at the top of `main.js` in `DISCOUNT_CODES` — add or retire codes by editing that list. Heads up: since this is a static site, codes are visible to anyone who reads the page source, and they don't process payment — the code just arrives with the booking email so **you** apply the discount when you invoice. Treat them as marketing, not security.
+
+## Editing testimonials
+
+The rotating quotes on the homepage live in `main.js` in the `TESTIMONIALS` array (currently the seven reviews from your personal site). Add new ones as quoted strings.
 
 ## Adding an exercise
 

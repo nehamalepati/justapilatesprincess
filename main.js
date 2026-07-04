@@ -30,6 +30,92 @@ if (prefersReducedMotion) {
   revealEls.forEach((el) => io.observe(el));
 }
 
+// ---------- testimonials rotator ----------
+const testimonialQuote = document.getElementById("testimonial-quote");
+if (testimonialQuote) {
+  const TESTIMONIALS = [
+    "neha is such a great instructor! she has such a soothing voice and gives great cues. the pace of her class feels super intentional and the ab series is killer!!",
+    "neha is so sweet! her class is great for someone who wants to understand more about the “why” behind movements",
+    "neha was so warm and welcoming. i really enjoyed this class and will definitely do it again :)",
+    "visiting boston for a few days and absolutely loved the class! tysm for such a cute, inclusive, and welcoming space!",
+    "loved the class! neha was so welcoming, kind, and encouraging!",
+    "loved her class, it was challenging, and neha had great energy!",
+    "neha was kind and bubbly and explained proper technique well through a classical pilates mat sequence. exactly what i came for—challenging and thorough!"
+  ];
+
+  const counter = document.getElementById("testimonial-counter");
+  const prevBtn = document.getElementById("testimonial-prev");
+  const nextBtn = document.getElementById("testimonial-next");
+  let current = 0;
+  let timer = null;
+
+  function show(n, instant) {
+    current = (n + TESTIMONIALS.length) % TESTIMONIALS.length;
+    const swap = () => {
+      testimonialQuote.textContent = "“" + TESTIMONIALS[current] + "”";
+      counter.textContent = (current + 1) + " / " + TESTIMONIALS.length;
+      testimonialQuote.classList.remove("fading");
+    };
+    if (instant || prefersReducedMotion) {
+      swap();
+    } else {
+      testimonialQuote.classList.add("fading");
+      setTimeout(swap, 250);
+    }
+  }
+
+  function restartAuto() {
+    if (timer) clearInterval(timer);
+    if (!prefersReducedMotion) timer = setInterval(() => show(current + 1), 7000);
+  }
+
+  prevBtn.addEventListener("click", () => { show(current - 1); restartAuto(); });
+  nextBtn.addEventListener("click", () => { show(current + 1); restartAuto(); });
+
+  show(0, true);
+  restartAuto();
+}
+
+// ---------- discount codes ----------
+// add or retire codes here — key is the code, value is what it gets you.
+// (codes are honor-system: they're applied when you invoice, not on the site.)
+const DISCOUNT_CODES = {
+  princess10: "10% off your first private session 👑",
+  desilates15: "15% off your first desi-lates class",
+  moonlight20: "20% off moonlight stretch when you bring a friend 🌙"
+};
+
+const codeInput = document.getElementById("f-code");
+if (codeInput) {
+  const codeBtn = document.getElementById("apply-code");
+  const codeMsg = document.getElementById("code-msg");
+
+  function applyCode() {
+    const raw = codeInput.value.trim().toLowerCase();
+    if (!raw) {
+      codeMsg.textContent = "";
+      codeMsg.className = "code-msg";
+      return;
+    }
+    if (DISCOUNT_CODES[raw]) {
+      codeInput.value = raw;
+      codeMsg.textContent = "✨ code applied — " + DISCOUNT_CODES[raw];
+      codeMsg.className = "code-msg ok";
+    } else {
+      codeMsg.textContent = "hmm, that code isn't working — double-check the spelling?";
+      codeMsg.className = "code-msg err";
+    }
+  }
+
+  codeBtn.addEventListener("click", applyCode);
+  codeInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      applyCode();
+    }
+  });
+}
+
 // ---------- exercise library ----------
 const grid = document.getElementById("exercise-grid");
 

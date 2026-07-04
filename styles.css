@@ -19,7 +19,7 @@
 
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Karla", "Helvetica Neue", Arial, sans-serif;
-  --font-telugu: "Noto Serif Telugu", serif;
+  --font-telugu: "Suravaram", "Noto Serif Telugu", serif;
 
   --measure: 62ch;
   --radius: 18px;
@@ -46,6 +46,12 @@ body {
 
 img { max-width: 100%; display: block; }
 
+/* the whole site speaks in lowercase — princess energy, like the logo.
+   form controls don't inherit text-transform, so they're listed explicitly;
+   inputs stay untransformed so visitors' typing keeps its own case. */
+body, button, select, option { text-transform: lowercase; }
+input, textarea, .keep-case { text-transform: none; }
+
 a { color: var(--violet); }
 
 ::selection { background: var(--lilac-deep); color: var(--ink); }
@@ -68,13 +74,13 @@ h3 { font-size: 1.45rem; }
   font-weight: 700;
   font-size: 0.78rem;
   letter-spacing: 0.22em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: var(--violet);
   display: block;
   margin-bottom: 0.9rem;
 }
 
-.telugu { font-family: var(--font-telugu); font-weight: 500; }
+.telugu { font-family: var(--font-telugu); font-weight: 400; }
 
 .lede {
   font-size: 1.2rem;
@@ -119,38 +125,39 @@ section { padding: 5.5rem 0; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 0.85rem 0;
+  gap: 1.5rem;
+  padding: 1.05rem 0;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 1rem;
   text-decoration: none;
   color: var(--ink);
 }
 .brand img {
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   object-fit: cover;
 }
 .brand-name {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  line-height: 1.2;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  line-height: 1.35;
 }
 .brand-name small {
   display: block;
   font-family: var(--font-body);
   font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.32em;
   color: var(--violet);
+  margin-top: 3px;
 }
 
 .nav-links {
@@ -353,7 +360,7 @@ section { padding: 5.5rem 0; }
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.2em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: var(--violet);
   display: block;
   margin-bottom: 0.4rem;
@@ -377,6 +384,91 @@ section { padding: 5.5rem 0; }
 .program--night p { color: #bfaedd; }
 .program--night .when { color: var(--marigold-soft); }
 .program--night .go { color: var(--marigold-soft); }
+
+/* ---------- credentials & testimonials ---------- */
+
+.cred-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+.quals { display: grid; gap: 1.2rem; align-content: start; }
+
+.qual-card {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.7rem;
+  box-shadow: var(--shadow);
+}
+.qual-mark { color: var(--marigold); flex-shrink: 0; margin-top: 0.25rem; }
+.qual-card h3 { font-size: 1.3rem; margin-bottom: 0.35rem; }
+.qual-card h3 a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--marigold-soft);
+}
+.qual-card h3 a:hover { color: var(--violet); }
+.qual-card p { color: var(--ink-soft); font-size: 0.93rem; }
+.qual-note { font-size: 0.92rem; color: var(--ink-soft); padding-left: 0.3rem; }
+
+.testimonial {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(150deg, var(--lilac-tint), rgba(253, 252, 254, 0.92));
+  border-radius: var(--radius);
+  padding: 3.2rem 2.4rem 1.6rem;
+  box-shadow: var(--shadow);
+  margin: 0;
+}
+.testimonial-mark {
+  position: absolute;
+  top: 0.6rem;
+  left: 1.6rem;
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--marigold);
+}
+.testimonial blockquote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.45rem;
+  line-height: 1.45;
+  color: var(--ink);
+  min-height: 11rem;
+  transition: opacity 0.25s ease;
+}
+.testimonial blockquote.fading { opacity: 0; }
+.testimonial-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+.testimonial-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(123, 94, 167, 0.4);
+  background: transparent;
+  color: var(--violet);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.testimonial-btn:hover { background: var(--ink); color: var(--lilac-wash); border-color: var(--ink); }
 
 /* ---------- moonlight band (dark closing section) ---------- */
 
@@ -479,7 +571,7 @@ section { padding: 5.5rem 0; }
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: var(--marigold);
 }
 .exercise-card h3 { margin: 0.5rem 0 0.4rem; color: var(--ink); }
@@ -521,7 +613,7 @@ section { padding: 5.5rem 0; }
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: var(--marigold);
 }
 .merch-card p { color: var(--ink-soft); font-size: 0.93rem; flex-grow: 1; }
@@ -575,7 +667,7 @@ section { padding: 5.5rem 0; }
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.2em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: var(--marigold);
 }
 .modal h2 { margin: 0.5rem 0 0.3rem; }
@@ -622,7 +714,7 @@ section { padding: 5.5rem 0; }
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: var(--violet);
   margin: 1.6rem 0 0.6rem;
 }
@@ -679,7 +771,7 @@ section { padding: 5.5rem 0; }
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: var(--violet);
 }
 .field input,
@@ -702,6 +794,14 @@ section { padding: 5.5rem 0; }
 
 .form-note { font-size: 0.85rem; color: var(--ink-soft); }
 
+.field .optional { font-weight: 400; letter-spacing: 0.02em; color: var(--ink-soft); }
+.code-row { display: flex; gap: 0.6rem; }
+.code-row input { flex: 1; min-width: 0; }
+.code-row .btn { padding: 0.6rem 1.3rem; flex-shrink: 0; }
+.code-msg { font-size: 0.85rem; min-height: 1.2em; }
+.code-msg.ok { color: var(--violet); font-weight: 700; }
+.code-msg.err { color: #a04545; }
+
 /* ---------- footer ---------- */
 
 .site-footer {
@@ -722,7 +822,7 @@ section { padding: 5.5rem 0; }
   font-family: var(--font-display);
   font-size: 1.1rem;
   letter-spacing: 0.16em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: var(--night-ink);
 }
 .footer-brand .telugu {
@@ -792,5 +892,7 @@ select:focus-visible, textarea:focus-visible {
 
   .moonlight-inner { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .cred-grid { grid-template-columns: 1fr; }
+  .testimonial blockquote { min-height: 0; margin-bottom: 1rem; }
   .modal { padding: 2rem 1.4rem; }
 }
