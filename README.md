@@ -18,7 +18,7 @@ The website for [justapilatesprincess.com](https://justapilatesprincess.com) —
 
 ## Before you launch — 3 small things
 
-1. **Add your logo.** Save your logo image as `images/logo.jpg`. (The site works without it, but it's cuter with it.)
+1. **Add your logo.** Save your logo image as `images/logo.jpg` — it automatically appears in the nav, hero, section dividers, footer, booking form, Princess Tee card, exercise video slots, and as the favicon. (Every spot hides itself gracefully until the file exists.)
 2. **Activate the contact form.** The form uses [FormSubmit](https://formsubmit.co) (free, no account). The **first time** someone submits it, FormSubmit emails `justapilatesprincess@gmail.com` a confirmation link — click it once and all future submissions arrive normally. Do a test submission yourself to trigger this.
 3. **Make the copy yours.** I wrote all the class descriptions and exercise instructions in your voice as a starting point — read through `index.html` and especially `exercises.js` and tweak anything that doesn't sound like you.
 

@@ -201,7 +201,7 @@ if (grid && typeof EXERCISES !== "undefined") {
     if (ex.videoId) {
       videoSlot.innerHTML = `<iframe src="https://www.youtube.com/embed/${ex.videoId}" title="${ex.name} — video demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     } else {
-      videoSlot.innerHTML = `<span>🎥 Video demo coming soon —<br>the written steps below have you covered for now.</span>`;
+      videoSlot.innerHTML = `<span><img class="slot-logo" src="images/logo.jpg" alt="" onerror="this.remove()">🎥 video demo coming soon —<br>the written steps below have you covered for now.</span>`;
     }
 
     const steps = document.getElementById("modal-steps");
