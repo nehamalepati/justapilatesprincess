@@ -117,6 +117,19 @@ h3 { font-size: 1.45rem; }
 .telugu { font-family: var(--font-telugu); font-weight: 400; }
 .eyebrow .telugu { font-size: 1.5em; vertical-align: -0.12em; }
 
+/* the name lockup: నేహా · neha · just a pilates princess
+   (gold name, purple brand — used in the hero eyebrow and footers) */
+.name-lockup {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+.name-te, .name-sep { color: var(--marigold); }
+.name-en { color: var(--violet); }
+.site-footer .name-te, .site-footer .name-sep { color: var(--marigold-soft); }
+.site-footer .name-en { color: #bfaedd; }
+
 .lede {
   font-size: 1.2rem;
   color: var(--ink-soft);
@@ -334,10 +347,9 @@ section { padding: 5.5rem 0; }
   height: clamp(180px, 22vw, 300px);
   border-radius: 50%;
   object-fit: cover;
-  /* crisp coin ring: paper gap, hairline gold, soft drop */
+  /* hairline gold ring straight on the badge edge, soft drop below */
   box-shadow:
-    0 0 0 6px var(--paper),
-    0 0 0 7.5px var(--marigold),
+    0 0 0 2.5px var(--marigold),
     0 24px 60px rgba(51, 34, 75, 0.18);
 }
 
@@ -958,8 +970,8 @@ main:has(.moonlight:last-child) + .site-footer { margin-top: 0; }
 .footer-brand .telugu {
   text-transform: none;
   letter-spacing: 0;
-  color: var(--marigold-soft);
-  margin-right: 0.5rem;
+  font-size: 1.2em;
+  vertical-align: -0.1em;
 }
 .site-footer a { color: var(--marigold-soft); text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
