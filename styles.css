@@ -484,6 +484,8 @@ section { padding: 5.5rem 0; }
 
 /* ---------- desi-lates level cards (numbered: a real progression) ---------- */
 
+.gold-word { color: var(--marigold); font-style: italic; }
+
 .levels-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
