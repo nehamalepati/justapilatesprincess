@@ -471,6 +471,7 @@ section { padding: 5.5rem 0; }
 .program--midday .program-icon { background: linear-gradient(135deg, #f7e7c8, #eed3a0); color: #a8741f; }
 .program--day    .program-icon { background: linear-gradient(135deg, #efe6fa, #dccef0); color: var(--violet); }
 .program--dusk   .program-icon { background: linear-gradient(135deg, #dccef0, #b9a3d9); color: #4c3670; }
+.program--sunset .program-icon { background: linear-gradient(135deg, #f6ddc9, #dcb8e0); color: #ad5a38; }
 .program--night  .program-icon { background: linear-gradient(135deg, #3a2a55, #241735); color: var(--marigold-soft); }
 
 .program--night {
@@ -480,6 +481,47 @@ section { padding: 5.5rem 0; }
 .program--night p { color: #bfaedd; }
 .program--night .when { color: var(--marigold-soft); }
 .program--night .go { color: var(--marigold-soft); }
+
+/* ---------- desi-lates level cards (numbered: a real progression) ---------- */
+
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+
+.level-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 2rem 1.8rem;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: inherit;
+  border-top: 3px solid var(--marigold-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.level-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 38px rgba(51, 34, 75, 0.16);
+}
+.level-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 2.3rem;
+  line-height: 1;
+  color: var(--marigold);
+}
+.level-card h3 { font-size: 1.3rem; }
+.level-card p { color: var(--ink-soft); font-size: 0.94rem; flex-grow: 1; }
+.level-go {
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+  color: var(--violet);
+}
 
 /* ---------- credentials & testimonials ---------- */
 
@@ -1041,6 +1083,7 @@ select:focus-visible, textarea:focus-visible {
   .moonlight-inner { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .cred-grid { grid-template-columns: 1fr; }
+  .levels-grid { grid-template-columns: 1fr; }
   .testimonial blockquote { min-height: 0; margin-bottom: 1rem; }
   .modal { padding: 2rem 1.4rem; }
 }

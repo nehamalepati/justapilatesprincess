@@ -143,10 +143,15 @@ if (grid && typeof EXERCISES !== "undefined") {
   let query = "";
   let lastFocused = null;
 
-  // honor ?cat=… links from the homepage program cards
+  // honor ?cat=…&q=… links from the flows page cards
   const params = new URLSearchParams(window.location.search);
   const catParam = params.get("cat");
   if (catParam && categories.includes(catParam)) activeCategory = catParam;
+  const qParam = params.get("q");
+  if (qParam) {
+    searchInput.value = qParam;
+    query = qParam.trim().toLowerCase();
+  }
 
   categories.forEach((cat) => {
     const chip = document.createElement("button");

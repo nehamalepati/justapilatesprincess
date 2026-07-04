@@ -4,8 +4,9 @@
      name        — what it's called
      nickname    — optional italic subtitle (sanskrit / desi / cute name)
      category    — one of: "Desi-lates", "Restorative", "Stretch & Recovery",
-                   "Morning Mobility", "Slowburn", "Moonlight Stretch",
-                   "Prenatal", "Mommy & Me"
+                   "Morning Mobility", "Slowburn", "Sunset Shakeout",
+                   "Moonlight Stretch", "Prenatal", "Mommy & Me"
+     level       — Beginner / Intermediate / Advanced / All levels
      focus       — short "what it works" line shown on the card
      level       — Beginner / All levels / Intermediate
      duration    — rough time or rep guidance
@@ -134,6 +135,91 @@ const EXERCISES = [
       "Keep both sitting bones heavy on the mat the whole time."
     ],
     cue: "Be the diya flame — it bends, it glows, it never falls over.",
+    videoId: ""
+  },
+  {
+    name: "Shake-It-Out Standing Swings",
+    nickname: "permission to flop",
+    category: "Sunset Shakeout",
+    focus: "Spine · shoulders · nervous system",
+    level: "Beginner",
+    duration: "2–3 minutes",
+    steps: [
+      "Stand feet wider than hips, knees soft, arms completely loose.",
+      "Twist gently side to side and let your arms swing and flop against your body like empty sleeves.",
+      "Let the twist travel up your spine — hips, ribs, then shoulders, head coming along last.",
+      "After a minute, add a little bounce through the knees on every swing.",
+      "To finish, slow the swings gradually until you're still — notice how much quieter your body feels."
+    ],
+    cue: "This is the human version of a dog shaking off water — undignified, and exactly the point.",
+    videoId: ""
+  },
+  {
+    name: "Downshift Flow",
+    nickname: "restless energy's exit route",
+    category: "Sunset Shakeout",
+    focus: "Full body · breath · release",
+    level: "All levels",
+    duration: "4–5 rounds",
+    steps: [
+      "Start on hands and knees with three quick, flowing cat-cows — faster than your morning ones.",
+      "Tuck your toes and press to down dog, pedaling your heels like you're walking off the day.",
+      "Walk your hands back to your feet, hang heavy for one breath, then roll up to standing.",
+      "Reach both arms high on an inhale; exhale and swan-dive back down.",
+      "Each round, move a little slower — you're downshifting gears until your body idles calm."
+    ],
+    cue: "Start at the speed of your restlessness and finish at the speed of your breath.",
+    videoId: ""
+  },
+  {
+    name: "Aramandi Foundations",
+    nickname: "the half-sit that starts it all",
+    category: "Desi-lates",
+    focus: "Legs · posture · turnout",
+    level: "Beginner",
+    duration: "3–4 minutes",
+    steps: [
+      "Stand with heels together, toes turned out — your first bharatanatyam position.",
+      "Bend your knees over your toes and sink halfway down into aramandi, spine tall like a string is lifting your crown.",
+      "Bring palms together at your heart in namaskar hasta.",
+      "Pulse gently eight times, keeping your pelvis neutral — pilates brain, dancer's shape.",
+      "Rise, shake out your legs, and repeat two more rounds."
+    ],
+    cue: "Aramandi is your new safe neutral — sit into it like a throne, not a squat.",
+    videoId: ""
+  },
+  {
+    name: "Adavu Tempo Series",
+    nickname: "footwork meets core",
+    category: "Desi-lates",
+    focus: "Coordination · legs · deep core",
+    level: "Intermediate",
+    duration: "3 rounds of 8",
+    steps: [
+      "From aramandi, stamp the tatta adavu — flat-foot strikes on a steady beat, eight per side.",
+      "Add alternating hasta arms, keeping your ribs stacked while your feet keep time.",
+      "Between rounds, come down to the mat for a thirty-second hundred hold.",
+      "Back up to aramandi and repeat at a slightly quicker tempo each round.",
+      "Finish with one slow round at half speed — control is the flex."
+    ],
+    cue: "The beat keeps you honest — your core keeps you royal.",
+    videoId: ""
+  },
+  {
+    name: "Abhinaya Story Flow",
+    nickname: "tell the story with your whole body",
+    category: "Desi-lates",
+    focus: "Full body · balance · artistry",
+    level: "Advanced",
+    duration: "one continuous 5-minute flow",
+    steps: [
+      "Open seated and cross-legged with slow neck and eye isolations — let your gaze lead, alarippu style.",
+      "Roll back into a teaser and hold, arms in mudra instead of reaching long.",
+      "Transition through side plank, top arm sweeping a hasta arc overhead.",
+      "Rise to aramandi for four controlled jumps (or pulses on lower-energy days).",
+      "Close with a slow bow to your own practice — the flow ends the way a piece ends on stage."
+    ],
+    cue: "By now the moves are yours — the flow is just you, telling a story your body already knows.",
     videoId: ""
   },
   {
