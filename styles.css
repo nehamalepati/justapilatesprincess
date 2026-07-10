@@ -148,23 +148,16 @@ section { padding: 5.5rem 0; }
 .section-head { max-width: var(--measure); margin-bottom: 3rem; }
 .section-head p { margin-top: 1rem; color: var(--ink-soft); }
 
-/* rangoli scallop divider with logo medallion between sections */
+/* wispy gold hairlines between sections — slim hand-drawn strokes
+   that fade out at both ends. subtle in both themes. */
 .divider {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.1rem;
   padding: 0.5rem 0;
-  color: var(--marigold-soft);
+  color: var(--marigold);
 }
-.divider svg { width: 88px; height: 26px; }
-.divider img {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 0 1.5px var(--marigold-soft);
-}
+.divider svg { width: min(440px, 72vw); height: 42px; }
 
 /* ---------- header / nav ---------- */
 
@@ -233,7 +226,7 @@ section { padding: 5.5rem 0; }
   letter-spacing: 0.04em;
 }
 .nav-links a:hover { color: var(--violet); }
-.nav-links a[aria-current="page"] {
+.nav-links a[aria-current="page"]:not(.nav-cta) {
   color: var(--violet);
   border-bottom: 2px solid var(--marigold);
   padding-bottom: 2px;
@@ -244,9 +237,15 @@ section { padding: 5.5rem 0; }
   color: var(--lilac-wash) !important;
   padding: 0.55rem 1.15rem;
   border-radius: 999px;
-  border-bottom: none !important;
 }
 .nav-cta:hover { background: var(--violet); }
+/* on the booking page itself the pill keeps its shape — a deeper
+   violet fill and a slim gold ring mark "you're already here" */
+.nav-cta[aria-current="page"] {
+  background: var(--violet);
+  box-shadow: 0 0 0 1.5px var(--marigold);
+}
+.nav-cta[aria-current="page"]:hover { background: var(--ink); }
 
 .nav-toggle {
   display: none;
@@ -559,7 +558,6 @@ section { padding: 5.5rem 0; }
 }
 .qual-card h3 a:hover { color: var(--violet); }
 .qual-card p { color: var(--ink-soft); font-size: 0.93rem; }
-.qual-note { font-size: 0.92rem; color: var(--ink-soft); padding-left: 0.3rem; }
 
 .testimonial {
   position: relative;
@@ -899,6 +897,31 @@ section { padding: 5.5rem 0; }
   color: var(--ink-soft);
 }
 .modal .cue strong { color: var(--ink); }
+
+/* ---------- "coming soon" dialog (library + merch, saved for later) ---------- */
+
+.coming-soon-backdrop { align-items: center; padding: 2rem 1rem; }
+
+.coming-soon {
+  max-width: 440px;
+  text-align: center;
+  padding: 3rem 2.4rem 2.8rem;
+}
+.coming-soon-crown { color: var(--marigold); display: block; }
+.coming-soon h2 { margin: 0.4rem 0 0.75rem; }
+.coming-soon-msg {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  margin-bottom: 1.8rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .coming-soon { animation: coming-soon-in 0.25s ease; }
+  @keyframes coming-soon-in {
+    from { opacity: 0; transform: translateY(10px) scale(0.98); }
+    to { opacity: 1; transform: none; }
+  }
+}
 
 /* ---------- contact / booking ---------- */
 

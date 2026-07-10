@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>join the mailing list — just a pilates princess</title>
+  <meta name="description" content="Leave your email and Neha will write to you when the next event, flow, or pop-up is announced. No spam, just soft launches.">
+  <script>(function(){var t=localStorage.getItem("theme");if(!t)t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t);})();</script>
+  <link rel="icon" href="images/logo.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Karla:wght@400;500;700&family=Suravaram&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ---------- mailing page: one small sweet card ---------- */
+    body {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: clamp(1rem, 4vw, 2.5rem) 1rem;
+    }
+
+    .note-card {
+      width: min(100%, 440px);
+      background: var(--paper);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(123, 94, 167, 0.16);
+      padding: 2.4rem 1.8rem 1.7rem;
+      text-align: center;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--ink-soft);
+      text-decoration: none;
+      margin-bottom: 1.3rem;
+    }
+    .back-link:hover { color: var(--violet); }
+
+    .note-logo {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-inline: auto;
+      box-shadow:
+        0 0 0 1.5px var(--marigold-soft),
+        0 12px 28px rgba(51, 34, 75, 0.16);
+    }
+
+    .note-card .name-lockup {
+      justify-content: center;
+      margin-top: 1.15rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.3rem;
+      line-height: 1.2;
+      row-gap: 0.1rem;
+    }
+    .note-card .name-lockup .telugu { font-size: 1.15em; }
+    .note-card .name-en { font-style: italic; }
+
+    .note-card h1 {
+      font-size: clamp(1.8rem, 6vw, 2.2rem);
+      margin-top: 1.1rem;
+    }
+    .note-card h1 em { font-style: italic; color: var(--marigold); }
+
+    .invite {
+      margin-top: 0.8rem;
+      color: var(--ink-soft);
+      font-size: 0.98rem;
+      max-width: 38ch;
+      margin-inline: auto;
+    }
+
+    /* ---------- the form ---------- */
+    .signup-form {
+      display: grid;
+      gap: 1.1rem;
+      margin-top: 1.7rem;
+      text-align: left;
+    }
+    .signup-form .field label .optional {
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--ink-soft);
+    }
+    .signup-form .btn { justify-self: center; width: 100%; text-align: center; }
+    .signup-form .btn-gold {
+      background: var(--marigold);
+      border-color: var(--marigold);
+      color: var(--night);
+    }
+    .signup-form .btn-gold:hover {
+      background: var(--marigold-soft);
+      border-color: var(--marigold-soft);
+    }
+
+    .occasionally {
+      margin-top: 1.1rem;
+      font-size: 0.83rem;
+      color: var(--ink-soft);
+    }
+
+    /* ---------- thank-you state (?joined=1) ---------- */
+    .thanks {
+      display: none;
+      margin-top: 1.7rem;
+      padding: 1.4rem 1.3rem;
+      border-radius: 18px;
+      background:
+        linear-gradient(160deg, rgba(232, 201, 138, 0.28), rgba(232, 201, 138, 0.06) 65%),
+        var(--lilac-wash);
+      border: 1px solid rgba(201, 139, 45, 0.35);
+    }
+    .thanks .telugu {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--marigold);
+      margin-bottom: 0.4rem;
+    }
+    .thanks p { color: var(--ink-soft); font-size: 0.95rem; }
+    .thanks p strong { color: var(--ink); }
+    body.joined .thanks { display: block; }
+    body.joined .signup-form, body.joined .invite { display: none; }
+
+    .note-foot {
+      margin-top: 1.6rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+    }
+    .note-foot a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      border-bottom: 1px solid var(--marigold-soft);
+      padding-bottom: 1px;
+    }
+    .note-foot a:hover { color: var(--violet); }
+
+    /* ---------- gentle entrance ---------- */
+    @keyframes note-rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: none; }
+    }
+    .note-card { animation: note-rise 0.6s ease both; }
+    @media (prefers-reduced-motion: reduce) {
+      .note-card { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+<main class="note-card">
+
+  <a class="back-link" href="card.html">← back to card</a>
+
+  <img class="note-logo" src="images/logo.jpg" alt="just a pilates princess crest — a woman in a pilates pose inside a circular badge" onerror="this.style.display='none'">
+
+  <p class="name-lockup"><span class="name-te"><span class="telugu">నేహా</span> · neha</span><span class="name-sep" aria-hidden="true">·</span><span class="name-en">just a pilates princess</span></p>
+
+  <h1>a love letter, <em>occasionally</em> 💌</h1>
+
+  <p class="invite">leave your email and i'll write to you when the next event, flow, or pop-up is announced. no spam, just soft launches. 👑</p>
+
+  <form class="signup-form" action="https://formsubmit.co/justapilatesprincess@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="💌 new mailing list signup">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://justapilatesprincess.com/mailing.html?joined=1">
+    <input type="text" name="_honey" style="display:none">
+
+    <div class="field">
+      <label for="m-name">your name <span class="optional">(optional)</span></label>
+      <input id="m-name" type="text" name="name" autocomplete="name" placeholder="princess…">
+    </div>
+
+    <div class="field">
+      <label for="m-email">email</label>
+      <input id="m-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com">
+    </div>
+
+    <button class="btn btn-gold" type="submit">join the list 💌</button>
+  </form>
+
+  <div class="thanks" role="status">
+    <span class="telugu" aria-hidden="true">✦</span>
+    <p><strong>you're on the list, princess.</strong> i'll write to you when something soft-launches — an event, a new flow, a pop-up. until then, deep breaths. 💜</p>
+  </div>
+
+  <p class="occasionally">i only email when there's genuinely something to share — a few times a season, at most.</p>
+
+  <p class="note-foot"><a href="index.html">justapilatesprincess.com</a></p>
+
+</main>
+
+<script>
+  (function () {
+    if (new URLSearchParams(location.search).get("joined") === "1") {
+      document.body.classList.add("joined");
+      document.title = "you're on the list — just a pilates princess";
+    }
+  })();
+</script>
+
+</body>
+</html>

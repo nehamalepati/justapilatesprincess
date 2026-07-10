@@ -23,8 +23,8 @@
     <ul class="nav-links">
       <li><a href="index.html" aria-current="page">home</a></li>
       <li><a href="flows.html">the flows</a></li>
-      <li><a href="library.html">exercise library</a></li>
-      <li><a href="merch.html">merch</a></li>
+      <li><a href="library.html" data-coming-soon="exercise library">exercise library</a></li>
+      <li><a href="merch.html" data-coming-soon="merch">merch</a></li>
       <li><a href="contact.html" class="nav-cta">book a session</a></li>
     </ul>
     <button class="theme-toggle" aria-label="toggle dark mode">
@@ -70,9 +70,20 @@
   </section>
 
   <div class="divider" aria-hidden="true">
-    <svg viewBox="0 0 88 26" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 18 Q 14 6 24 18 Q 34 6 44 18 Q 54 6 64 18 Q 74 6 84 18"/></svg>
-    <img src="images/logo.jpg" alt="" onerror="this.style.display='none'">
-    <svg viewBox="0 0 88 26" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 18 Q 14 6 24 18 Q 34 6 44 18 Q 54 6 64 18 Q 74 6 84 18"/></svg>
+    <svg viewBox="0 0 320 42" fill="none" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <linearGradient id="wisp-fade" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="currentColor" stop-opacity="0"/>
+          <stop offset="0.18" stop-color="currentColor" stop-opacity="0.5"/>
+          <stop offset="0.5" stop-color="currentColor" stop-opacity="0.85"/>
+          <stop offset="0.82" stop-color="currentColor" stop-opacity="0.5"/>
+          <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d="M2 21 C 56 15, 112 26, 168 20 S 272 16, 318 22" stroke="url(#wisp-fade)" stroke-width="1.1" vector-effect="non-scaling-stroke"/>
+      <path d="M14 27 C 78 32, 148 18, 214 25 S 296 29, 312 24" stroke="url(#wisp-fade)" stroke-width="1" opacity="0.6" vector-effect="non-scaling-stroke"/>
+      <path d="M28 15 C 92 10, 168 22, 236 15 S 292 12, 304 16" stroke="url(#wisp-fade)" stroke-width="1" opacity="0.4" vector-effect="non-scaling-stroke"/>
+    </svg>
   </div>
 
   <!-- ============ PILLARS ============ -->
@@ -132,7 +143,6 @@
               <p>Specialized certification for teaching safely through pregnancy and postpartum recovery — the heart of the women's health work I do.</p>
             </div>
           </article>
-          <p class="qual-note">Currently teaching at <a href="https://www.nepilatesboston.com/" target="_blank" rel="noopener">North End Pilates</a> in Boston.</p>
         </div>
 
         <figure class="testimonial reveal">
@@ -156,7 +166,7 @@
         <h2>Your mat is waiting, princess</h2>
         <p class="lede">Browse the exercise library for step-by-step guidance, or reach out to book a private session, a mommy &amp; me class, or a group event.</p>
         <div class="hero-ctas">
-          <a class="btn btn-moon" href="library.html">Open the exercise library</a>
+          <a class="btn btn-moon" href="library.html" data-coming-soon="exercise library">Open the exercise library</a>
           <a class="btn btn-ghost" style="color:var(--night-ink); border-color:var(--night-ink);" href="contact.html">Get in touch</a>
         </div>
       </div>
@@ -171,7 +181,7 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <span class="footer-brand"><img src="images/logo.jpg" alt="" onerror="this.style.display='none'"><span class="name-lockup"><span class="name-te"><span class="telugu">నేహా</span> · neha</span><span class="name-sep" aria-hidden="true">·</span><span class="name-en">just a pilates princess</span></span></span>
-    <span><a href="mailto:justapilatesprincess@gmail.com">justapilatesprincess@gmail.com</a> &nbsp;·&nbsp; <a href="https://nehamalepati.com">nehamalepati.com</a></span>
+    <span><a href="mailto:justapilatesprincess@gmail.com">justapilatesprincess@gmail.com</a> &nbsp;·&nbsp; <a href="https://nehamalepati.com">nehamalepati.com</a> &nbsp;·&nbsp; <a href="mailing.html">join the mailing list 💌</a></span>
     <span class="footer-note">Movement is not medical advice — if you're pregnant, postpartum, or recovering from injury, check in with your healthcare provider before starting a new practice. 💜</span>
   </div>
 </footer>

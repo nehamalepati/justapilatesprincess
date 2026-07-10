@@ -127,6 +127,73 @@ if (codeInput) {
   });
 }
 
+// ---------- "coming soon" dialog (exercise library + merch) ----------
+// those pages are saved for later — links keep their real hrefs and are
+// marked data-coming-soon="exercise library" / "merch". re-enabling later
+// is just deleting the data attributes.
+(function () {
+  if (!document.querySelector("[data-coming-soon]")) return;
+
+  const COMING_SOON_COPY = {
+    "exercise library":
+      "the exercise library is almost ready — sign up for a session and i'll tell you the moment it opens. 👑",
+    "merch":
+      "the merch is still being lovingly made — book a session and you'll be the first to know when it drops. 👑"
+  };
+
+  let csBackdrop = null;
+  let csLastFocused = null;
+
+  function buildComingSoon() {
+    csBackdrop = document.createElement("div");
+    csBackdrop.className = "modal-backdrop coming-soon-backdrop";
+    csBackdrop.innerHTML = `
+      <div class="modal coming-soon" role="dialog" aria-modal="true" aria-labelledby="coming-soon-title">
+        <button class="modal-close" id="coming-soon-close" aria-label="close">✕</button>
+        <span class="coming-soon-crown" aria-hidden="true">
+          <svg width="40" height="28" viewBox="0 0 44 30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 22 L2 6 L12 14 L22 2 L32 14 L42 6 L40 22 Z"/><line x1="7" y1="27" x2="37" y2="27" stroke-linecap="round"/></svg>
+        </span>
+        <span class="cat" id="coming-soon-what"></span>
+        <h2 id="coming-soon-title">coming soon</h2>
+        <p class="coming-soon-msg" id="coming-soon-msg"></p>
+        <a class="btn btn-solid" href="contact.html">book a session</a>
+      </div>`;
+    document.body.appendChild(csBackdrop);
+
+    csBackdrop.querySelector("#coming-soon-close").addEventListener("click", closeComingSoon);
+    csBackdrop.addEventListener("click", (e) => {
+      if (e.target === csBackdrop) closeComingSoon();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && csBackdrop.classList.contains("open")) closeComingSoon();
+    });
+  }
+
+  function openComingSoon(what) {
+    if (!csBackdrop) buildComingSoon();
+    csLastFocused = document.activeElement;
+    csBackdrop.querySelector("#coming-soon-what").textContent = what;
+    csBackdrop.querySelector("#coming-soon-msg").textContent =
+      COMING_SOON_COPY[what] || "this corner of the site is almost ready — check back soon, princess. 👑";
+    csBackdrop.classList.add("open");
+    document.body.style.overflow = "hidden";
+    csBackdrop.querySelector("#coming-soon-close").focus();
+  }
+
+  function closeComingSoon() {
+    csBackdrop.classList.remove("open");
+    document.body.style.overflow = "";
+    if (csLastFocused) csLastFocused.focus();
+  }
+
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("[data-coming-soon]");
+    if (!link) return;
+    e.preventDefault();
+    openComingSoon(link.getAttribute("data-coming-soon"));
+  });
+})();
+
 // ---------- exercise library ----------
 const grid = document.getElementById("exercise-grid");
 

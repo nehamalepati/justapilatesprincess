@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>digital card — just a pilates princess</title>
+  <meta name="description" content="Neha — just a pilates princess. Desi-lates, restorative flows &amp; women's health. All my links in one place.">
+  <meta property="og:title" content="నేహా · neha · just a pilates princess">
+  <meta property="og:description" content="desi-lates · restorative flows · women's health — all my links in one place.">
+  <meta property="og:image" content="https://justapilatesprincess.com/images/logo.jpg">
+  <meta property="og:url" content="https://justapilatesprincess.com/card.html">
+  <meta property="og:type" content="profile">
+  <script>(function(){var t=localStorage.getItem("theme");if(!t)t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t);})();</script>
+  <link rel="icon" href="images/logo.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Karla:wght@400;500;700&family=Suravaram&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ---------- card page: one centered column, phone-first ---------- */
+    body {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: clamp(1rem, 4vw, 2.5rem) 1rem;
+    }
+
+    .card {
+      width: min(100%, 420px);
+      background: var(--paper);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(123, 94, 167, 0.16);
+      padding: 2.4rem 1.6rem 1.7rem;
+      text-align: center;
+    }
+
+    .card .crown {
+      color: var(--marigold);
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .card-logo {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-inline: auto;
+      box-shadow:
+        0 0 0 1.5px var(--marigold-soft),
+        0 14px 34px rgba(51, 34, 75, 0.18);
+    }
+
+    .card .name-lockup {
+      justify-content: center;
+      margin-top: 1.3rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.55rem;
+      line-height: 1.2;
+      row-gap: 0.1rem;
+    }
+    .card .name-lockup .telugu { font-size: 1.15em; }
+    .card .name-en { font-style: italic; }
+
+    .tagline {
+      margin-top: 0.55rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--ink-soft);
+    }
+
+    /* rangoli scallop between the name and the links */
+    .card-scallop {
+      display: flex;
+      justify-content: center;
+      color: var(--marigold-soft);
+      margin: 1.4rem 0 1.5rem;
+    }
+    .card-scallop svg { width: 96px; height: 22px; }
+
+    /* ---------- the star: mailing list row ---------- */
+    .mailing-cta {
+      display: block;
+      text-decoration: none;
+      border-radius: 18px;
+      padding: 1.05rem 1.2rem;
+      background: linear-gradient(140deg, var(--marigold), #b5791f);
+      color: #fffaf0;
+      box-shadow:
+        0 0 0 1.5px var(--marigold-soft),
+        0 12px 28px rgba(201, 139, 45, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .mailing-cta:hover, .mailing-cta:focus-visible {
+      transform: translateY(-2px);
+      box-shadow:
+        0 0 0 1.5px var(--marigold-soft),
+        0 16px 34px rgba(201, 139, 45, 0.45);
+    }
+    .mailing-cta .big {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.3rem;
+      line-height: 1.25;
+    }
+    .mailing-cta .small {
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 0.83rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #fdf3dd;
+    }
+    :root[data-theme="dark"] .mailing-cta {
+      background: linear-gradient(140deg, var(--marigold), #c98b2d);
+      color: var(--night);
+    }
+    :root[data-theme="dark"] .mailing-cta .small { color: #4a3512; }
+
+    /* ---------- link rows ---------- */
+    .links {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+      text-align: left;
+    }
+    .link-row {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      min-height: 54px;
+      padding: 0.72rem 1rem;
+      border: 1.5px solid rgba(123, 94, 167, 0.28);
+      border-radius: 16px;
+      text-decoration: none;
+      color: var(--ink);
+      background: transparent;
+      transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+    }
+    .link-row:hover, .link-row:focus-visible {
+      border-color: var(--violet);
+      background: rgba(123, 94, 167, 0.07);
+      transform: translateX(2px);
+    }
+    .link-row .ico {
+      flex: 0 0 34px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--lilac-wash);
+      color: var(--violet);
+    }
+    .link-row .label {
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+    }
+    .link-row .sub {
+      margin-left: auto;
+      flex: 1 1 0;
+      min-width: 0;
+      text-align: right;
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* ---------- quiet footer ---------- */
+    .card-foot {
+      margin-top: 1.6rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+    }
+    .card-foot a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      border-bottom: 1px solid var(--marigold-soft);
+      padding-bottom: 1px;
+    }
+    .card-foot a:hover { color: var(--violet); }
+
+    /* ---------- gentle entrance ---------- */
+    @keyframes card-rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: none; }
+    }
+    .card > * { animation: card-rise 0.6s ease both; }
+    .card > *:nth-child(2) { animation-delay: 0.07s; }
+    .card > *:nth-child(3) { animation-delay: 0.14s; }
+    .card > *:nth-child(4) { animation-delay: 0.21s; }
+    .card > *:nth-child(5) { animation-delay: 0.28s; }
+    .card > *:nth-child(6) { animation-delay: 0.35s; }
+    .card > *:nth-child(7) { animation-delay: 0.42s; }
+    .card > *:nth-child(8) { animation-delay: 0.49s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card > * { animation: none; }
+      .mailing-cta:hover, .link-row:hover { transform: none; }
+    }
+
+    @media (max-width: 380px) {
+      .card { padding: 2rem 1.15rem 1.5rem; }
+      .card .name-lockup { font-size: 1.35rem; }
+      .link-row .sub { font-size: 0.72rem; }
+    }
+  </style>
+</head>
+<body>
+
+<main class="card">
+
+  <div class="crown" aria-hidden="true">
+    <svg width="38" height="26" viewBox="0 0 44 30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+      <path d="M4 22 L2 6 L12 14 L22 2 L32 14 L42 6 L40 22 Z"/>
+      <line x1="7" y1="27" x2="37" y2="27" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <img class="card-logo" src="images/logo.jpg" alt="just a pilates princess crest — a woman in a pilates pose inside a circular badge" onerror="this.style.display='none'">
+
+  <h1 class="name-lockup"><span class="name-te"><span class="telugu">నేహా</span> · neha</span><span class="name-sep" aria-hidden="true">·</span><span class="name-en">just a pilates princess</span></h1>
+
+  <p class="tagline">desi-lates · restorative flows · women's health</p>
+
+  <div class="card-scallop" aria-hidden="true">
+    <svg viewBox="0 0 88 26" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 18 Q 14 6 24 18 Q 34 6 44 18 Q 54 6 64 18 Q 74 6 84 18"/></svg>
+  </div>
+
+  <a class="mailing-cta" href="mailing.html">
+    <span class="big">💌 join the mailing list</span>
+    <span class="small">be first to hear about my next event</span>
+  </a>
+
+  <nav class="links" aria-label="my links">
+    <a class="link-row" href="https://justapilatesprincess.com">
+      <span class="ico" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </span>
+      <span class="label">website</span>
+      <span class="sub">justapilatesprincess.com</span>
+    </a>
+
+    <a class="link-row" href="mailto:justapilatesprincess@gmail.com">
+      <span class="ico" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </span>
+      <span class="label">email</span>
+      <span class="sub keep-case">justapilatesprincess@gmail.com</span>
+    </a>
+
+    <a class="link-row" href="https://instagram.com/jusapilatesprincess" target="_blank" rel="noopener">
+      <span class="ico" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </span>
+      <span class="label">instagram</span>
+      <span class="sub keep-case">@jusapilatesprincess</span>
+    </a>
+
+    <a class="link-row" href="NehaMalepatiResumeEvents.pdf" target="_blank" rel="noopener">
+      <span class="ico" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </span>
+      <span class="label">resume</span>
+      <span class="sub">pdf</span>
+    </a>
+  </nav>
+
+  <p class="card-foot"><a href="index.html">justapilatesprincess.com</a></p>
+
+</main>
+
+</body>
+</html>
