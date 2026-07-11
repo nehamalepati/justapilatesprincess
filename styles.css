@@ -613,6 +613,88 @@ section { padding: 5.5rem 0; }
 }
 .testimonial-btn:hover { background: var(--ink); color: var(--lilac-wash); border-color: var(--ink); }
 
+/* ---------- upcoming events: little tear-off calendar pages ---------- */
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+.event-card {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 1.9rem 2rem;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 38px rgba(51, 34, 75, 0.16);
+}
+
+/* the calendar page — pinned at a tilt, straightens when you reach for it */
+.event-cal {
+  flex-shrink: 0;
+  width: 94px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--lilac-wash);
+  box-shadow: 0 0 0 1.5px var(--marigold-soft), 0 8px 20px rgba(51, 34, 75, 0.14);
+  text-align: center;
+  transform: rotate(-3deg);
+  transition: transform 0.22s ease;
+}
+.event-card:hover .event-cal { transform: rotate(0deg); }
+
+.event-month {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-indent: 0.34em; /* recenters the tracked-out text */
+  padding: 0.36rem 0 0.3rem;
+  color: var(--night);
+  background: linear-gradient(120deg, var(--marigold), var(--marigold-soft));
+  /* perforated edge — the page is waiting to be torn off */
+  border-bottom: 1.5px dashed var(--paper);
+}
+
+.event-day {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 3.1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.5rem 0 0.05rem;
+  color: var(--ink);
+}
+
+.event-dow {
+  display: block;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--ink-soft);
+  padding-bottom: 0.55rem;
+}
+
+.event-info h3 { font-size: 1.35rem; margin-bottom: 0.3rem; }
+.event-info p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 0.9rem; }
+
+.event-go {
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+  color: var(--marigold);
+}
+.event-card:hover .event-go { text-decoration: underline; }
+
 /* ---------- moonlight band (dark closing section) ---------- */
 
 .moonlight {
@@ -646,6 +728,75 @@ section { padding: 5.5rem 0; }
     0 0 0 2px var(--marigold-soft),
     0 0 55px rgba(232, 201, 138, 0.22);
 }
+
+/* the crest with a love letter propped beside it */
+.moonlight-aside {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.moonlight-aside > * { flex: none; }
+
+.mail-card {
+  position: relative;
+  order: -1; /* letter leads the row, crest closes it */
+  width: 224px;
+  aspect-ratio: 1;
+  transform: rotate(-3deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  text-align: center;
+  padding: 1.4rem 1.5rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--night-ink);
+  background:
+    radial-gradient(14rem 10rem at 80% -20%, rgba(232, 201, 138, 0.16), transparent 60%),
+    rgba(239, 232, 249, 0.07);
+  border: 1px solid rgba(232, 201, 138, 0.55);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  transition: transform 0.22s ease, background-color 0.22s ease, box-shadow 0.22s ease;
+}
+.mail-card:hover {
+  transform: rotate(0deg) translateY(-3px);
+  background-color: rgba(239, 232, 249, 0.12);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.4), 0 0 34px rgba(232, 201, 138, 0.2);
+}
+
+.mail-card-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--marigold-soft);
+  border: 1.5px solid var(--marigold-soft);
+  margin-bottom: 0.2rem;
+}
+.mail-card strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.1;
+}
+.mail-card-sub {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: #bfaedd;
+}
+.mail-card-go {
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--marigold-soft);
+  margin-top: 0.15rem;
+}
+.mail-card:hover .mail-card-go { text-decoration: underline; }
 
 /* ---------- exercise library ---------- */
 
@@ -981,6 +1132,10 @@ section { padding: 5.5rem 0; }
 .field input,
 .field select,
 .field textarea {
+  /* min-width: 0 — a select's intrinsic width is its widest option, which
+     otherwise props the whole form (and page) wider than small phones */
+  width: 100%;
+  min-width: 0;
   font-family: var(--font-body);
   font-size: 1rem;
   color: var(--ink);
@@ -1061,7 +1216,8 @@ main:has(.moonlight:last-child) + .site-footer { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .btn:hover, .program:hover, .exercise-card:hover { transform: none; }
+  .btn:hover, .program:hover, .exercise-card:hover, .event-card:hover { transform: none; }
+  .event-cal, .mail-card { transition: none; }
 }
 
 /* ---------- focus visibility ---------- */
@@ -1076,6 +1232,10 @@ select:focus-visible, textarea:focus-visible {
 
 @media (max-width: 880px) {
   section { padding: 4rem 0; }
+
+  /* fixed backgrounds jank (or silently break) on mobile browsers —
+     let the watercolor wash scroll with the page instead */
+  body { background-attachment: scroll; }
 
   .nav-toggle { display: block; }
   .nav-links {
@@ -1111,9 +1271,34 @@ select:focus-visible, textarea:focus-visible {
   .program .go { display: none; }
 
   .moonlight-inner { grid-template-columns: 1fr; }
+  .moonlight-aside { flex-direction: column; gap: 1.6rem; }
+  .mail-card { order: 0; } /* stacked: crest back on top, letter beneath */
+
+  .events-grid { grid-template-columns: 1fr; }
+  .event-card { padding: 1.5rem 1.4rem; gap: 1.3rem; }
+  .event-cal { width: 84px; }
+  .event-day { font-size: 2.7rem; }
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .booking-form { padding: 1.9rem 1.4rem; }
   .cred-grid { grid-template-columns: 1fr; }
   .levels-grid { grid-template-columns: 1fr; }
   .testimonial blockquote { min-height: 0; margin-bottom: 1rem; }
+  /* comfortable thumb targets for the quote pager */
+  .testimonial-btn { width: 44px; height: 44px; }
   .modal { padding: 2rem 1.4rem; }
+  /* the "video coming soon" placeholder holds more text than a 16:9 box
+     allows on small screens — let it size to its content (a real video
+     iframe keeps the ratio) */
+  .modal .video-slot:not(:has(iframe)) { aspect-ratio: auto; min-height: 9rem; }
+}
+
+/* small phones: keep the brand lockup to two tidy lines instead of four */
+@media (max-width: 430px) {
+  .nav { gap: 0.9rem; }
+  .brand { gap: 0.7rem; }
+  .brand img { width: 40px; height: 40px; }
+  .brand-name { font-size: 0.95rem; letter-spacing: 0.12em; }
+  .brand-name small { font-size: 0.74rem; letter-spacing: 0.2em; }
+  .booking-form { padding: 1.7rem 1.1rem; }
+  .modal { padding: 1.8rem 1.1rem 2rem; }
 }

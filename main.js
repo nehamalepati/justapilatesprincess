@@ -136,9 +136,9 @@ if (codeInput) {
 
   const COMING_SOON_COPY = {
     "exercise library":
-      "the exercise library is almost ready — sign up for a session and i'll tell you the moment it opens. 👑",
+      "the exercise library is almost ready — sign up for my mailing list and i'll tell you the moment it opens 👑",
     "merch":
-      "the merch is still being lovingly made — book a session and you'll be the first to know when it drops. 👑"
+      "the merch is still being lovingly made — sign up for my mailing list and you'll be the first to know when it drops 👑"
   };
 
   let csBackdrop = null;

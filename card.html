@@ -32,12 +32,37 @@
 
     .card {
       width: min(100%, 420px);
-      background: var(--paper);
+      /* min-width: 0 — as a grid item the card's default min-width:auto lets
+         nested nowrap text force it wider than the viewport on small phones */
+      min-width: 0;
+      /* light mode: a lavender surface, one shade deeper than the page wash */
+      background: linear-gradient(168deg, #f0e7fa 0%, #e6daf3 100%);
       border-radius: 26px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(123, 94, 167, 0.16);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), var(--shadow);
+      border: 1px solid rgba(123, 94, 167, 0.22);
       padding: 2.4rem 1.6rem 1.7rem;
       text-align: center;
+    }
+
+    :root[data-theme="dark"] .card {
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      border-color: rgba(232, 201, 138, 0.14);
+    }
+
+    /* ---------- theme toggle, tucked in the top corner ---------- */
+    .theme-toggle {
+      position: fixed;
+      top: 0.9rem;
+      right: 0.9rem;
+      z-index: 5;
+      background: rgba(253, 252, 254, 0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    :root[data-theme="dark"] .theme-toggle {
+      background: rgba(36, 24, 52, 0.55);
     }
 
     .card .crown {
@@ -58,16 +83,17 @@
         0 14px 34px rgba(51, 34, 75, 0.18);
     }
 
+    /* one identity moment: big telugu-led name, brand line tucked beneath it */
     .card .name-lockup {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-top: 1.3rem;
+      margin-top: 1.25rem;
       font-family: var(--font-display);
       font-weight: 600;
-      font-size: 1.55rem;
-      line-height: 1.2;
-      row-gap: 0.15rem;
+      font-size: 1.8rem;
+      line-height: 1.15;
+      row-gap: 0.1rem;
     }
 
     .card .name-sep {
@@ -75,48 +101,44 @@
     }
 
     .card .name-lockup .telugu {
-      font-size: 1.15em;
+      font-size: 1.12em;
     }
 
     .card .name-en {
       font-style: italic;
+      font-size: 0.72em;
+      letter-spacing: 0.015em;
     }
 
     .tagline {
-      margin-top: 0.55rem;
-      font-size: 0.82rem;
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.16em;
       color: var(--ink-soft);
     }
 
-    .tagline-te {
-      margin-top: 0.35rem;
-      font-size: 1.08rem;
-      color: var(--marigold);
-    }
-
-    .tagline-motto {
-      margin-top: 0.7rem;
-      margin-bottom: 1.3rem;
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 600;
-      font-size: 1.2rem;
-      color: var(--violet);
-    }
-
-    /* rangoli scallop between the name and the links */
-    .card-scallop {
+    /* the telugu tagline becomes the ornament: a rangoli-style rule where
+       యువరాణి · నాట్యం · ఆరోగ్యం sits between two fading gold hairlines */
+    .card-divider {
       display: flex;
-      justify-content: center;
-      color: var(--marigold-soft);
-      margin: 1.4rem 0 1.5rem;
+      align-items: center;
+      gap: 0.7rem;
+      margin: 1.15rem 0 1.35rem;
+      color: var(--marigold);
+      font-size: 0.98rem;
+      line-height: 1;
+      white-space: nowrap;
     }
 
-    .card-scallop svg {
-      width: 96px;
-      height: 22px;
+    .card-divider .rule {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--marigold-soft));
+    }
+
+    .card-divider .rule:last-child {
+      background: linear-gradient(90deg, var(--marigold-soft), transparent);
     }
 
     /* ---------- the star: mailing list row ---------- */
@@ -167,11 +189,87 @@
       color: #4a3512;
     }
 
+    /* ---------- upcoming events: two save-the-date chips ---------- */
+    .upcoming {
+      margin-top: 1.35rem;
+      display: grid;
+      gap: 0.45rem;
+      text-align: left;
+    }
+
+    .upcoming-label {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--ink-soft);
+      margin-bottom: 0.1rem;
+    }
+
+    .event-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      min-width: 0;
+      min-height: 44px;
+      padding: 0.5rem 0.85rem;
+      border: 1.5px dashed rgba(201, 139, 45, 0.45);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.42);
+      text-decoration: none;
+      color: var(--ink);
+      transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+    }
+
+    .event-chip:hover,
+    .event-chip:focus-visible {
+      border-color: var(--marigold);
+      background: rgba(255, 255, 255, 0.65);
+      transform: translateX(2px);
+    }
+
+    :root[data-theme="dark"] .event-chip {
+      background: rgba(232, 201, 138, 0.05);
+      border-color: rgba(223, 169, 88, 0.4);
+    }
+
+    :root[data-theme="dark"] .event-chip:hover,
+    :root[data-theme="dark"] .event-chip:focus-visible {
+      background: rgba(232, 201, 138, 0.1);
+      border-color: var(--marigold);
+    }
+
+    .event-chip .ev-date {
+      flex: 0 0 auto;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--marigold);
+      white-space: nowrap;
+    }
+
+    .event-chip .ev-name {
+      min-width: 0;
+      font-weight: 700;
+      font-size: 0.88rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .event-chip .ev-when {
+      flex: 0 0 auto;
+      margin-left: auto;
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+
     /* ---------- link rows ---------- */
     .links {
       display: grid;
       gap: 0.6rem;
-      margin-top: 1.5rem;
+      margin-top: 1.35rem;
       text-align: left;
     }
 
@@ -179,21 +277,31 @@
       display: flex;
       align-items: center;
       gap: 0.9rem;
+      min-width: 0;
       min-height: 54px;
       padding: 0.72rem 1rem;
       border: 1.5px solid rgba(123, 94, 167, 0.28);
       border-radius: 16px;
       text-decoration: none;
       color: var(--ink);
-      background: transparent;
+      background: rgba(255, 255, 255, 0.3);
       transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+    }
+
+    :root[data-theme="dark"] .link-row {
+      background: transparent;
     }
 
     .link-row:hover,
     .link-row:focus-visible {
       border-color: var(--violet);
-      background: rgba(123, 94, 167, 0.07);
+      background: rgba(255, 255, 255, 0.6);
       transform: translateX(2px);
+    }
+
+    :root[data-theme="dark"] .link-row:hover,
+    :root[data-theme="dark"] .link-row:focus-visible {
+      background: rgba(169, 143, 212, 0.08);
     }
 
     .link-row .ico {
@@ -203,8 +311,12 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      background: var(--lilac-wash);
+      background: rgba(255, 255, 255, 0.75);
       color: var(--violet);
+    }
+
+    :root[data-theme="dark"] .link-row .ico {
+      background: var(--lilac-wash);
     }
 
     .link-row .label {
@@ -225,21 +337,13 @@
       white-space: nowrap;
     }
 
-    /* ---------- quiet footer ---------- */
+    /* ---------- quiet footer: the motto as a closing epigraph ---------- */
     .card-foot {
-      margin-top: 1.6rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-    }
-
-    .card-foot a {
-      color: var(--ink-soft);
-      text-decoration: none;
-      border-bottom: 1px solid var(--marigold-soft);
-      padding-bottom: 1px;
-    }
-
-    .card-foot a:hover {
+      margin-top: 1.5rem;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1.08rem;
       color: var(--violet);
     }
 
@@ -288,6 +392,10 @@
       animation-delay: 0.49s;
     }
 
+    .card>*:nth-child(9) {
+      animation-delay: 0.56s;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .card>* {
         animation: none;
@@ -305,11 +413,19 @@
       }
 
       .card .name-lockup {
-        font-size: 1.35rem;
+        font-size: 1.55rem;
       }
 
       .link-row .sub {
         font-size: 0.72rem;
+      }
+
+      .card-divider {
+        font-size: 0.9rem;
+      }
+
+      .event-chip .ev-when {
+        display: none;
       }
     }
   </style>
@@ -335,14 +451,31 @@
         aria-hidden="true">·</span><span class="name-en">just a pilates princess</span></h1>
 
     <p class="tagline">desi-lates · community wellness events</p>
-    <p class="tagline tagline-te"><span class="telugu">యువరాణి · నాట్యం · ఆరోగ్యం</span></p>
 
-    <p class="tagline-motto">every princess needs her practice</p>
+    <div class="card-divider">
+      <span class="rule" aria-hidden="true"></span>
+      <span class="telugu">యువరాణి · నాట్యం · ఆరోగ్యం</span>
+      <span class="rule" aria-hidden="true"></span>
+    </div>
 
     <a class="mailing-cta" href="mailing.html">
       <span class="big">💌 join the mailing list</span>
       <span class="small">be first to hear about my next event</span>
     </a>
+
+    <div class="upcoming" aria-label="upcoming events">
+      <p class="upcoming-label">upcoming ✨</p>
+      <a class="event-chip" href="https://partiful.com/e/K11Cimt6sIxgPF6q0EPY" target="_blank" rel="noopener">
+        <span class="ev-date">sat jul 18</span>
+        <span class="ev-name">pilates &amp; matcha 💜💚❤️</span>
+        <span class="ev-when">12 pm et</span>
+      </a>
+      <a class="event-chip" href="https://partiful.com/e/14tOE8icYhoz3eU63mNv" target="_blank" rel="noopener">
+        <span class="ev-date">sat jul 25</span>
+        <span class="ev-name">natya &amp; nomz 💜🤎</span>
+        <span class="ev-when">12 pm et</span>
+      </a>
+    </div>
 
     <nav class="links" aria-label="my links">
       <a class="link-row" href="https://justapilatesprincess.com">
@@ -398,9 +531,37 @@
       </a>
     </nav>
 
-    <p class="card-foot"><a href="index.html">justapilatesprincess.com</a></p>
+    <p class="card-foot">every princess needs her practice</p>
 
   </main>
+
+  <button class="theme-toggle" aria-label="toggle dark mode">
+    <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 14.5 A 8.5 8.5 0 1 1 9.5 4 A 7 7 0 0 0 20 14.5 Z" />
+    </svg>
+    <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.8" stroke-linecap="round">
+      <circle cx="12" cy="12" r="4.5" />
+      <line x1="12" y1="2.5" x2="12" y2="5" />
+      <line x1="12" y1="19" x2="12" y2="21.5" />
+      <line x1="2.5" y1="12" x2="5" y2="12" />
+      <line x1="19" y1="12" x2="21.5" y2="12" />
+      <line x1="5.3" y1="5.3" x2="7" y2="7" />
+      <line x1="17" y1="17" x2="18.7" y2="18.7" />
+      <line x1="18.7" y1="5.3" x2="17" y2="7" />
+      <line x1="5.3" y1="18.7" x2="7" y2="17" />
+    </svg>
+  </button>
+
+  <script>
+    // same behavior as main.js (not loaded on this page): flip + persist theme
+    document.querySelector(".theme-toggle").addEventListener("click", function () {
+      var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+  </script>
 
 </body>
 
