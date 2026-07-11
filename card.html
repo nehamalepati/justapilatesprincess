@@ -257,8 +257,12 @@
 
     .event-chip .ev-name {
       min-width: 0;
-      font-weight: 700;
-      font-size: 0.88rem;
+      /* italic serif for a cursive feel; larger size since the serif runs small */
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1.08rem;
+      letter-spacing: 0.01em;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
