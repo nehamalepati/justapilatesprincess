@@ -127,8 +127,6 @@ h3 { font-size: 1.45rem; }
 }
 .name-te, .name-sep { color: var(--marigold); }
 .name-en { color: var(--violet); }
-.site-footer .name-te, .site-footer .name-sep { color: var(--marigold-soft); }
-.site-footer .name-en { color: #bfaedd; }
 
 .lede {
   font-size: 1.2rem;
@@ -1200,9 +1198,32 @@ main:has(.moonlight:last-child) + .site-footer { margin-top: 0; }
   font-size: 1.2em;
   vertical-align: -0.1em;
 }
+/* the footer name lockup mirrors the header brand: serif brand name on top,
+   the gold నేహా · neha signature tucked beneath — instead of one long
+   dot-separated run */
+.site-footer .name-lockup {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+.site-footer .name-sep { display: none; }
+.site-footer .name-en {
+  order: -1; /* brand name leads visually; the DOM keeps నేహా first */
+  color: #bfaedd;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+.site-footer .name-te {
+  color: var(--marigold-soft);
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+}
+.site-footer .name-te .telugu { font-size: 1.45em; }
 .site-footer a { color: var(--marigold-soft); text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
-.footer-note { font-size: 0.82rem; width: 100%; opacity: 0.75; }
+.footer-note { font-size: 0.82rem; width: 100%; opacity: 0.75; text-align: center; }
 
 /* ---------- reveal animation ---------- */
 
@@ -1254,8 +1275,19 @@ select:focus-visible, textarea:focus-visible {
   }
   .nav-links.open { display: flex; }
   .nav-links li { width: 100%; }
-  .nav-links a { display: block; padding: 0.8rem 0; }
-  .nav-cta { display: inline-block; margin-top: 0.6rem; padding: 0.55rem 1.15rem; }
+  .nav-links a { display: block; padding: 0.85rem 0; }
+  /* keep the current-page underline hugging its word, not the whole row */
+  .nav-links a[aria-current="page"]:not(.nav-cta) { width: max-content; }
+  /* the book-a-session pill: in the stacked menu it becomes a full-width,
+     centered button. (needs .nav-links prefix — the plain ".nav-cta" rule
+     loses its padding to ".nav-links a" above on specificity.) */
+  .nav-links .nav-cta {
+    display: block;
+    text-align: center;
+    margin-top: 0.9rem;
+    padding: 0.85rem 1.5rem;
+    min-height: 44px;
+  }
 
   .pillars { grid-template-columns: 1fr; }
 
@@ -1271,8 +1303,12 @@ select:focus-visible, textarea:focus-visible {
   .program .go { display: none; }
 
   .moonlight-inner { grid-template-columns: 1fr; }
+  /* stacked: the letter keeps the lead, crest tucks in beneath */
   .moonlight-aside { flex-direction: column; gap: 1.6rem; }
-  .mail-card { order: 0; } /* stacked: crest back on top, letter beneath */
+
+  /* stacked footer centers as one column */
+  .footer-inner { justify-content: center; text-align: center; }
+  .site-footer .name-lockup { align-items: center; }
 
   .events-grid { grid-template-columns: 1fr; }
   .event-card { padding: 1.5rem 1.4rem; gap: 1.3rem; }

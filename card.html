@@ -213,9 +213,11 @@
       min-width: 0;
       min-height: 44px;
       padding: 0.5rem 0.85rem;
-      border: 1.5px dashed rgba(201, 139, 45, 0.45);
+      border: 1.5px solid rgba(201, 139, 45, 0.5);
       border-radius: 14px;
-      background: rgba(255, 255, 255, 0.42);
+      /* soft gold wash: pairs the chips with the marigold cta above them and
+         sets them apart from the lavender link rows below */
+      background: linear-gradient(140deg, rgba(244, 223, 176, 0.92), rgba(233, 203, 141, 0.6));
       text-decoration: none;
       color: var(--ink);
       transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
@@ -224,18 +226,18 @@
     .event-chip:hover,
     .event-chip:focus-visible {
       border-color: var(--marigold);
-      background: rgba(255, 255, 255, 0.65);
+      background: linear-gradient(140deg, rgba(246, 226, 181, 1), rgba(235, 206, 146, 0.85));
       transform: translateX(2px);
     }
 
     :root[data-theme="dark"] .event-chip {
-      background: rgba(232, 201, 138, 0.05);
-      border-color: rgba(223, 169, 88, 0.4);
+      background: linear-gradient(140deg, rgba(232, 201, 138, 0.16), rgba(232, 201, 138, 0.08));
+      border-color: rgba(223, 169, 88, 0.55);
     }
 
     :root[data-theme="dark"] .event-chip:hover,
     :root[data-theme="dark"] .event-chip:focus-visible {
-      background: rgba(232, 201, 138, 0.1);
+      background: linear-gradient(140deg, rgba(232, 201, 138, 0.24), rgba(232, 201, 138, 0.13));
       border-color: var(--marigold);
     }
 
@@ -244,8 +246,13 @@
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.06em;
-      color: var(--marigold);
+      /* deeper gold than --marigold: keeps AA contrast on the gold wash */
+      color: #7c5211;
       white-space: nowrap;
+    }
+
+    :root[data-theme="dark"] .event-chip .ev-date {
+      color: var(--marigold);
     }
 
     .event-chip .ev-name {
@@ -450,7 +457,7 @@
     <h1 class="name-lockup"><span class="name-te"><span class="telugu">నేహా</span> · neha</span><span class="name-sep"
         aria-hidden="true">·</span><span class="name-en">just a pilates princess</span></h1>
 
-    <p class="tagline">desi-lates · community wellness events</p>
+    <p class="tagline">desi-lates · community events</p>
 
     <div class="card-divider">
       <span class="rule" aria-hidden="true"></span>
@@ -464,16 +471,16 @@
     </a>
 
     <div class="upcoming" aria-label="upcoming events">
-      <p class="upcoming-label">upcoming ✨</p>
+      <p class="upcoming-label">upcoming events ✨</p>
       <a class="event-chip" href="https://partiful.com/e/K11Cimt6sIxgPF6q0EPY" target="_blank" rel="noopener">
         <span class="ev-date">sat jul 18</span>
-        <span class="ev-name">pilates &amp; matcha 💜💚❤️</span>
-        <span class="ev-when">12 pm et</span>
+        <span class="ev-name">pilates &amp; matcha</span>
+        <span class="ev-when">12-2 pm et</span>
       </a>
       <a class="event-chip" href="https://partiful.com/e/14tOE8icYhoz3eU63mNv" target="_blank" rel="noopener">
         <span class="ev-date">sat jul 25</span>
-        <span class="ev-name">natya &amp; nomz 💜🤎</span>
-        <span class="ev-when">12 pm et</span>
+        <span class="ev-name">natya &amp; nomz</span>
+        <span class="ev-when">12-2 pm et</span>
       </a>
     </div>
 
