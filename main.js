@@ -87,6 +87,66 @@ if (testimonialQuote) {
   restartAuto();
 }
 
+// ---------- custom form validation ----------
+document.querySelectorAll("form").forEach((form) => {
+  const MESSAGES = {
+    text: "this field needs your name, princess",
+    email: "we'll need a valid email to reach you",
+    select: "pick one from the list",
+    textarea: "tell us a little more",
+    checkbox: "please accept before continuing",
+  };
+
+  function getMessage(el) {
+    if (el.type === "checkbox") return MESSAGES.checkbox;
+    if (el.tagName === "SELECT") return MESSAGES.select;
+    if (el.tagName === "TEXTAREA") return MESSAGES.textarea;
+    if (el.type === "email" && el.value) return "that doesn't look like an email — double-check?";
+    if (el.type === "email") return MESSAGES.email;
+    return MESSAGES.text;
+  }
+
+  function clearMsg(el) {
+    var wrap = el.closest(".field") || el.closest(".consent");
+    if (!wrap) return;
+    var existing = wrap.querySelector(".validation-msg");
+    if (existing) existing.remove();
+  }
+
+  function showMsg(el) {
+    clearMsg(el);
+    if (el.validity.valid) return;
+    var wrap = el.closest(".field") || el.closest(".consent");
+    if (!wrap) return;
+    if (!wrap.classList.contains("field-wrap")) wrap.classList.add("field-wrap");
+    var msg = document.createElement("span");
+    msg.className = "validation-msg";
+    msg.textContent = getMessage(el);
+    wrap.appendChild(msg);
+    setTimeout(function () { if (msg.parentNode) msg.remove(); }, 3500);
+  }
+
+  form.addEventListener("invalid", function (e) {
+    e.preventDefault();
+    showMsg(e.target);
+    e.target.classList.add("touched");
+  }, true);
+
+  form.addEventListener("input", function (e) {
+    if (e.target.classList.contains("touched")) {
+      clearMsg(e.target);
+      if (e.target.validity.valid) e.target.classList.remove("touched");
+    }
+  });
+
+  form.addEventListener("change", function (e) {
+    if (e.target.classList.contains("touched")) {
+      clearMsg(e.target);
+      if (e.target.validity.valid) e.target.classList.remove("touched");
+    }
+  });
+});
+
 // ---------- discount codes ----------
 // add or retire codes here — key is the code, value is what it gets you.
 // (codes are honor-system: they're applied when you invoice, not on the site.)

@@ -1249,6 +1249,210 @@ select:focus-visible, textarea:focus-visible {
   outline-offset: 2px;
 }
 
+/* ---------- legal pages ---------- */
+
+.legal-content {
+  max-width: var(--measure);
+}
+.legal-content h3 {
+  font-size: 1.35rem;
+  margin-top: 2.4rem;
+  margin-bottom: 0.6rem;
+  color: var(--violet);
+}
+.legal-content h3:first-child { margin-top: 0; }
+.legal-content h4 {
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--marigold);
+  margin-top: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+.legal-content p {
+  color: var(--ink-soft);
+  margin-bottom: 0.8rem;
+  font-size: 0.97rem;
+  line-height: 1.7;
+}
+.legal-content ul, .legal-content ol {
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+  line-height: 1.7;
+  padding-left: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+.legal-content li { margin-bottom: 0.35rem; }
+.legal-content a { color: var(--violet); }
+.legal-content strong { color: var(--ink); font-weight: 700; }
+
+.legal-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-size: 0.9rem;
+}
+.legal-content th,
+.legal-content td {
+  border: 1px solid var(--lilac-deep);
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+  color: var(--ink-soft);
+}
+.legal-content th {
+  background: var(--lilac-tint);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+.legal-content td:last-child {
+  text-align: center;
+  white-space: nowrap;
+}
+.legal-content .collected-yes {
+  color: var(--violet);
+  font-weight: 700;
+}
+.legal-content .collected-no {
+  color: var(--ink-soft);
+  opacity: 0.6;
+}
+@media (max-width: 880px) {
+  .legal-content table { font-size: 0.82rem; }
+  .legal-content th,
+  .legal-content td { padding: 0.5rem 0.6rem; }
+}
+
+/* ---------- custom form validation ---------- */
+
+.field-wrap { position: relative; }
+
+.validation-msg {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 0.35rem;
+  padding: 0.5rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--paper);
+  background: var(--violet);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(51, 34, 75, 0.22);
+  z-index: 10;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: validation-in 0.25s ease;
+}
+.validation-msg::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 1rem;
+  width: 10px;
+  height: 10px;
+  background: var(--violet);
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+.consent .validation-msg {
+  left: 27px;
+}
+.consent .validation-msg::before {
+  left: 0.6rem;
+}
+
+.field input:invalid:not(:placeholder-shown),
+.field select:invalid,
+.field textarea:invalid:not(:placeholder-shown),
+.consent input[type="checkbox"]:invalid {
+  border-color: transparent;
+}
+
+.field input.touched:invalid,
+.field select.touched:invalid,
+.field textarea.touched:invalid {
+  border-color: #a04545;
+}
+.consent input[type="checkbox"].touched:invalid {
+  border-color: #a04545;
+}
+
+@keyframes validation-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .validation-msg { animation: none; }
+}
+
+/* ---------- consent checkbox ---------- */
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.consent input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border: 1.5px solid rgba(123, 94, 167, 0.4);
+  border-radius: 5px;
+  background: var(--lilac-wash);
+  cursor: pointer;
+  margin-top: 1px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.consent input[type="checkbox"]:checked {
+  background: var(--marigold);
+  border-color: var(--marigold);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 7.5L5.5 10L11 4' stroke='%23241735' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 14px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.consent input[type="checkbox"]:focus-visible {
+  outline: 2.5px solid var(--marigold);
+  outline-offset: 2px;
+}
+.consent a {
+  color: var(--violet);
+  text-decoration: none;
+  border-bottom: 1px solid var(--marigold-soft);
+}
+.consent a:hover { color: var(--marigold); }
+
+/* ---------- footer legal links ---------- */
+
+.footer-legal {
+  width: 100%;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+.footer-legal a {
+  color: rgba(191, 174, 221, 0.7);
+  text-decoration: none;
+}
+.footer-legal a:hover {
+  color: var(--marigold-soft);
+  text-decoration: underline;
+}
+
 /* ---------- responsive ---------- */
 
 @media (max-width: 880px) {
