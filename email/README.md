@@ -5,10 +5,13 @@ Built for MailerLite's **custom HTML editor** (included on the free plan).
 
 ## Files
 
-- `moonlit-letter.html` — the designed email. Table-based layout with inline
-  styles so it renders correctly in Gmail, Apple Mail, Outlook, etc.
+- `moonlit-letter.html` — the designed newsletter. Table-based layout with
+  inline styles so it renders correctly in Gmail, Apple Mail, Outlook, etc.
 - `moonlit-letter.txt` — plain-text version. Paste it into MailerLite's
   plain-text tab on each send (good for deliverability).
+- `moonlit-welcome.html` / `.txt` — the automatic welcome email for new
+  subscribers (evergreen — no dated content, so it never goes stale).
+- `partiful-text.txt` — SMS copy for a Partiful text blast to attendees.
 
 ## How to send a letter
 
@@ -23,6 +26,28 @@ Built for MailerLite's **custom HTML editor** (included on the free plan).
    - **button** link + label (or delete the button table)
 4. Update the plain-text tab from `moonlit-letter.txt`.
 5. Send a test email to yourself before the real send. Always.
+
+## Automatic welcome email
+
+Set this up once in MailerLite and every new subscriber gets the welcome
+letter instantly:
+
+1. **Automations → Create automation** (or pick the "Welcome new
+   subscribers" template).
+2. Trigger: **When subscriber joins a group** → choose your main group
+   (e.g. "moonlit letters").
+3. Add an **Email** step → subject like `you're on the list, princess 👑`
+   → design with the **custom HTML editor** → paste `moonlit-welcome.html`
+   (or import from
+   <https://justapilatesprincess.com/email/moonlit-welcome.html>).
+4. Turn the automation **on**.
+
+Important: this only fires for subscribers who land **in MailerLite**.
+Right now the website form (FormSubmit) sends signups to your inbox, so
+you'd add them to MailerLite by hand and the welcome fires when you do
+(when importing, tick the option to start automations for imported
+subscribers). To make it fully automatic, the site form would need to be
+switched from FormSubmit to a MailerLite form.
 
 ## Texting attendees on Partiful
 
