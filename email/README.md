@@ -42,12 +42,23 @@ letter instantly:
    <https://justapilatesprincess.com/email/moonlit-welcome.html>).
 4. Turn the automation **on**.
 
-Important: this only fires for subscribers who land **in MailerLite**.
-Right now the website form (FormSubmit) sends signups to your inbox, so
-you'd add them to MailerLite by hand and the welcome fires when you do
-(when importing, tick the option to start automations for imported
-subscribers). To make it fully automatic, the site form would need to be
-switched from FormSubmit to a MailerLite form.
+To make signups land in MailerLite automatically (so the welcome fires
+with no manual step), the site form in `mailing.html` has a MailerLite
+hand-off built in — it just needs your form's action URL once:
+
+1. In MailerLite: **Forms → Embedded forms → Create embedded form**
+   (name it anything, pick your "moonlit letters" group).
+2. On the form's **HTML code** step, find the line that looks like
+   `<form action="https://assets.mailerlite.com/jsonp/…/subscribe"`
+   and copy that URL.
+3. In `mailing.html`, paste it into `var ML_FORM_ACTION = "";` near the
+   bottom of the file, then commit and push.
+
+After that, every signup goes to MailerLite (triggering the welcome
+email) *and* still emails your inbox via FormSubmit as before. Anyone
+already in your inbox from before the swap still needs a one-time manual
+import (tick "start automations for imported subscribers" if you want
+them welcomed too).
 
 ## Texting attendees on Partiful
 

@@ -211,6 +211,34 @@
     }
   })();
 </script>
+<script>
+  // ---------- mailerlite hand-off ----------
+  // paste your MailerLite form action URL between the quotes below and new
+  // signups sync into MailerLite automatically (which triggers the welcome
+  // email automation). find it in MailerLite: Forms → Embedded forms → your
+  // form → HTML code → copy the URL inside <form action="…/subscribe">.
+  // it looks like: https://assets.mailerlite.com/jsonp/123456/forms/987654321/subscribe
+  // the FormSubmit email to your inbox keeps working either way.
+  var ML_FORM_ACTION = "";
+
+  (function () {
+    if (!ML_FORM_ACTION) return;
+    var form = document.querySelector(".signup-form");
+    if (!form) return;
+    form.addEventListener("submit", function () {
+      var data = new FormData();
+      data.append("fields[name]", document.getElementById("m-name").value);
+      data.append("fields[email]", document.getElementById("m-email").value);
+      data.append("ml-submit", "1");
+      // fire-and-forget so the normal FormSubmit redirect still happens
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(ML_FORM_ACTION, data);
+      } else {
+        fetch(ML_FORM_ACTION, { method: "POST", body: data, mode: "no-cors", keepalive: true });
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
