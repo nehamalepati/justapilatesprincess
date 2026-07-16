@@ -212,30 +212,44 @@
   })();
 </script>
 <script>
-  // ---------- mailerlite hand-off ----------
-  // paste your MailerLite form action URL between the quotes below and new
-  // signups sync into MailerLite automatically (which triggers the welcome
-  // email automation). find it in MailerLite: Forms → Embedded forms → your
-  // form → HTML code → copy the URL inside <form action="…/subscribe">.
+  // ---------- mailerlite signup ----------
+  // paste your MailerLite form action URL between the quotes below and the
+  // form submits straight to MailerLite (which triggers the welcome email
+  // automation). find it in MailerLite: Forms → Embedded forms → your form
+  // → HTML code → copy the URL inside <form action="…/subscribe">.
   // it looks like: https://assets.mailerlite.com/jsonp/123456/forms/987654321/subscribe
-  // the FormSubmit email to your inbox keeps working either way.
+  // until it's filled in, the form falls back to FormSubmit so signups are
+  // never lost.
   var ML_FORM_ACTION = "";
 
   (function () {
     if (!ML_FORM_ACTION) return;
     var form = document.querySelector(".signup-form");
     if (!form) return;
-    form.addEventListener("submit", function () {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = "joining…";
       var data = new FormData();
       data.append("fields[name]", document.getElementById("m-name").value);
       data.append("fields[email]", document.getElementById("m-email").value);
       data.append("ml-submit", "1");
-      // fire-and-forget so the normal FormSubmit redirect still happens
-      if (navigator.sendBeacon) {
-        navigator.sendBeacon(ML_FORM_ACTION, data);
-      } else {
-        fetch(ML_FORM_ACTION, { method: "POST", body: data, mode: "no-cors", keepalive: true });
-      }
+      fetch(ML_FORM_ACTION, { method: "POST", body: data, mode: "no-cors" })
+        .then(function () {
+          location.href = "mailing.html?joined=1";
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = "join the list 💌";
+          var msg = form.querySelector(".validation-msg");
+          if (!msg) {
+            msg = document.createElement("span");
+            msg.className = "validation-msg";
+            form.appendChild(msg);
+          }
+          msg.textContent = "hmm, that didn't go through — mind trying again?";
+        });
     });
   })();
 </script>
