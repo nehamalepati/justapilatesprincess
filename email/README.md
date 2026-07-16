@@ -24,6 +24,22 @@ Built for MailerLite's **custom HTML editor** (included on the free plan).
 4. Update the plain-text tab from `moonlit-letter.txt`.
 5. Send a test email to yourself before the real send. Always.
 
+## Texting attendees on Partiful
+
+Partiful can't send designed emails — hosts message guests by SMS text
+blast. The play: text a short note that links to the letter, which is
+hosted live at <https://justapilatesprincess.com/email/moonlit-letter.html>.
+
+1. Open the event on Partiful (as the host) → **Manage** (or the ⋯ menu).
+2. Choose **Send a Text Blast** (Partiful texts everyone who RSVP'd;
+   you can target Going / Maybe).
+3. Paste the message from `partiful-text.txt` and send.
+
+Note: the unsubscribe link at the bottom of the letter is a MailerLite
+placeholder — it only works in emails MailerLite sends, not on the web
+page. That's fine for a text-blast audience (they can't unsubscribe
+from a web page anyway).
+
 ## Things to know
 
 - `{$unsubscribe}` is a MailerLite variable — **leave it exactly as is**.
