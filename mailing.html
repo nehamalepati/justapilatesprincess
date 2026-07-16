@@ -220,7 +220,7 @@
   // it looks like: https://assets.mailerlite.com/jsonp/123456/forms/987654321/subscribe
   // until it's filled in, the form falls back to FormSubmit so signups are
   // never lost.
-  var ML_FORM_ACTION = "";
+  var ML_FORM_ACTION = "https://assets.mailerlite.com/jsonp/2514815/forms/193195181058557140/subscribe";
 
   (function () {
     if (!ML_FORM_ACTION) return;
@@ -235,6 +235,7 @@
       data.append("fields[name]", document.getElementById("m-name").value);
       data.append("fields[email]", document.getElementById("m-email").value);
       data.append("ml-submit", "1");
+      data.append("anticsrf", "true");
       fetch(ML_FORM_ACTION, { method: "POST", body: data, mode: "no-cors" })
         .then(function () {
           location.href = "mailing.html?joined=1";
