@@ -5,9 +5,12 @@ Built for MailerLite's **custom HTML editor** (included on the free plan).
 
 ## Files
 
-- `moonlit-letter.html` — the designed newsletter. Table-based layout with
-  inline styles so it renders correctly in Gmail, Apple Mail, Outlook, etc.
-- `moonlit-letter.txt` — plain-text version. Paste it into MailerLite's
+- `moonlit-letter-july.html` — the july 2026 letter (pilates & matcha
+  thank-you). Table-based layout with inline styles so it renders
+  correctly in Gmail, Apple Mail, Outlook, etc. Each edition gets its own
+  dated file (`moonlit-letter-<month>.html`) so links texted to attendees
+  keep working forever — copy the latest one to start the next edition.
+- `moonlit-letter-july.txt` — plain-text version. Paste it into MailerLite's
   plain-text tab on each send (good for deliverability).
 - `moonlit-welcome.html` / `.txt` — the automatic welcome email for new
   subscribers (evergreen — no dated content, so it never goes stale).
@@ -16,7 +19,8 @@ Built for MailerLite's **custom HTML editor** (included on the free plan).
 ## How to send a letter
 
 1. In MailerLite: **Campaigns → Create campaign → Custom HTML editor**.
-2. Paste the full contents of `moonlit-letter.html`.
+2. Paste the full contents of the edition's HTML file
+   (e.g. `moonlit-letter-july.html`).
 3. Edit the spots marked with `✏️` comments in the HTML:
    - **preview text** (the line shown next to the subject in the inbox)
    - **edition line** (e.g. `moonlit letter · august 2026`)
@@ -24,7 +28,7 @@ Built for MailerLite's **custom HTML editor** (included on the free plan).
    - **body paragraphs** (each paragraph is its own `<p>` tag — copy one to add more)
    - **event chips** (copy/delete the whole chip `<table>` per event)
    - **button** link + label (or delete the button table)
-4. Update the plain-text tab from `moonlit-letter.txt`.
+4. Update the plain-text tab from the matching `.txt` file.
 5. Send a test email to yourself before the real send. Always.
 
 ## Automatic welcome email
@@ -65,7 +69,7 @@ automations for imported subscribers" if you want them welcomed too).
 
 Partiful can't send designed emails — hosts message guests by SMS text
 blast. The play: text a short note that links to the letter, which is
-hosted live at <https://justapilatesprincess.com/email/moonlit-letter.html>.
+hosted live at <https://justapilatesprincess.com/email/moonlit-letter-july>.
 
 1. Open the event on Partiful (as the host) → **Manage** (or the ⋯ menu).
 2. Choose **Send a Text Blast** (Partiful texts everyone who RSVP'd;
