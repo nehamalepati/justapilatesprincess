@@ -152,7 +152,7 @@ document.querySelectorAll("form").forEach((form) => {
 // (codes are honor-system: they're applied when you invoice, not on the site.)
 const DISCOUNT_CODES = {
   princess10: "10% off your first private session 👑",
-  desilates15: "15% off your first desi-lates class",
+  desilates15: "15% off your first desilates class",
   moonlight20: "20% off moonlight stretch when you bring a friend 🌙"
 };
 

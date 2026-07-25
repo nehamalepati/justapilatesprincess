@@ -1,7 +1,7 @@
 /* ============================================================
    just a pilates princess — justapilatesprincess.com
    Palette drawn from the logo: lavender watercolor + plum ink,
-   with one marigold accent for the desi side of desi-lates.
+   with one marigold accent for the desi side of desilates.
    ============================================================ */
 
 :root {
@@ -479,7 +479,7 @@ section { padding: 5.5rem 0; }
 .program--night .when { color: var(--marigold-soft); }
 .program--night .go { color: var(--marigold-soft); }
 
-/* ---------- desi-lates level cards (numbered: a real progression) ---------- */
+/* ---------- desilates level cards (numbered: a real progression) ---------- */
 
 .gold-word { color: var(--marigold); font-style: italic; }
 

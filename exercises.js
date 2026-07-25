@@ -3,7 +3,7 @@
    Each exercise:
      name        — what it's called
      nickname    — optional italic subtitle (sanskrit / desi / cute name)
-     category    — one of: "Desi-lates", "Restorative", "Stretch & Recovery",
+     category    — one of: "Desilates", "Restorative", "Stretch & Recovery",
                    "Morning Mobility", "Slowburn", "Sunset Shakeout",
                    "Moonlight Stretch", "Prenatal", "Mommy & Me"
      level       — Beginner / Intermediate / Advanced / All levels
@@ -89,7 +89,7 @@ const EXERCISES = [
   {
     name: "Lotus Hundred",
     nickname: "the classic, desi-fied",
-    category: "Desi-lates",
+    category: "Desilates",
     focus: "Deep core · breath endurance",
     level: "All levels",
     duration: "100 beats (10 breaths)",
@@ -106,7 +106,7 @@ const EXERCISES = [
   {
     name: "Kathak Wrist Circles & Arm Waves",
     nickname: "grace is strength",
-    category: "Desi-lates",
+    category: "Desilates",
     focus: "Shoulders · wrists · posture",
     level: "Beginner",
     duration: "2–3 minutes",
@@ -123,7 +123,7 @@ const EXERCISES = [
   {
     name: "Diya Side Bend",
     nickname: "seated mermaid, desi edition",
-    category: "Desi-lates",
+    category: "Desilates",
     focus: "Obliques · side body length",
     level: "All levels",
     duration: "5 per side",
@@ -174,7 +174,7 @@ const EXERCISES = [
   {
     name: "Aramandi Foundations",
     nickname: "the half-sit that starts it all",
-    category: "Desi-lates",
+    category: "Desilates",
     focus: "Legs · posture · turnout",
     level: "Beginner",
     duration: "3–4 minutes",
@@ -191,7 +191,7 @@ const EXERCISES = [
   {
     name: "Adavu Tempo Series",
     nickname: "footwork meets core",
-    category: "Desi-lates",
+    category: "Desilates",
     focus: "Coordination · legs · deep core",
     level: "Intermediate",
     duration: "3 rounds of 8",
@@ -208,7 +208,7 @@ const EXERCISES = [
   {
     name: "Abhinaya Story Flow",
     nickname: "tell the story with your whole body",
-    category: "Desi-lates",
+    category: "Desilates",
     focus: "Full body · balance · artistry",
     level: "Advanced",
     duration: "one continuous 5-minute flow",

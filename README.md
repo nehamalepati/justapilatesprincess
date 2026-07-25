@@ -1,6 +1,6 @@
 # just a pilates princess 👑
 
-The website for [justapilatesprincess.com](https://justapilatesprincess.com) — desi-lates flows, restorative movement for beginners, and stretch & recovery, with a focus on women's health.
+The website for [justapilatesprincess.com](https://justapilatesprincess.com) — desilates flows, restorative movement for beginners, and stretch & recovery, with a focus on women's health.
 
 ## What's here
 
