@@ -693,6 +693,144 @@ section { padding: 5.5rem 0; }
 }
 .event-card:hover .event-go { text-decoration: underline; }
 
+/* on the home page the grid ends with a soft pointer to the events page */
+.events-more { margin-top: 1.8rem; }
+.events-more a {
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+  color: var(--violet);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--marigold-soft);
+  padding-bottom: 2px;
+}
+.events-more a:hover { color: var(--marigold); }
+
+/* ---------- events page: the scrapbook (past events) ---------- */
+
+.past-event { margin-bottom: 3.8rem; }
+.past-event:last-child { margin-bottom: 0; }
+
+.past-event-head {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  margin-bottom: 1.3rem;
+}
+
+/* the page has already been torn off this calendar — it goes quiet
+   lilac and leans the other way, resting instead of reaching */
+.event-cal--past {
+  transform: rotate(3deg);
+  box-shadow: 0 0 0 1.5px var(--lilac-deep), 0 8px 20px rgba(51, 34, 75, 0.1);
+}
+.event-cal--past .event-month {
+  background: linear-gradient(120deg, var(--lilac-deep), var(--lilac-tint));
+  color: var(--ink);
+  border-bottom-color: var(--paper);
+}
+
+.past-event-head .event-info h3 { font-size: 1.45rem; }
+.past-event-head .event-info p { margin-bottom: 0; }
+.past-event-blurb {
+  margin-top: 0.35rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.08rem;
+  max-width: 52ch;
+}
+
+/* horizontal film-strip of photos & clips — snaps gently, scrolls on touch */
+.media-strip {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding: 0.3rem 0.2rem 1.1rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--lilac-deep) transparent;
+}
+.media-strip::-webkit-scrollbar { height: 8px; }
+.media-strip::-webkit-scrollbar-thumb { background: var(--lilac-deep); border-radius: 999px; }
+.media-strip::-webkit-scrollbar-track { background: transparent; }
+
+.media-item {
+  flex: 0 0 auto;
+  height: min(300px, 60vw);
+  border: none;
+  padding: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: var(--lilac-tint);
+  box-shadow: 0 0 0 1.5px rgba(232, 201, 138, 0.55), 0 10px 26px rgba(51, 34, 75, 0.14);
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.media-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 1.5px var(--marigold-soft), 0 16px 34px rgba(51, 34, 75, 0.2);
+}
+.media-item--video { cursor: default; }
+.media-item img,
+.media-item video {
+  height: 100%;
+  width: auto;
+  max-width: min(560px, 82vw);
+  object-fit: cover;
+  display: block;
+}
+
+/* until the photos arrive, a soft dashed keepsake card holds the spot */
+.media-empty {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  background: linear-gradient(150deg, var(--lilac-tint), var(--paper));
+  border: 1.5px dashed var(--lilac-deep);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.8rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+.media-empty-crown { color: var(--marigold); flex-shrink: 0; display: grid; }
+
+/* tap a photo and it floats up out of the night */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  background: rgba(18, 11, 30, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.2rem;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: min(1000px, 94vw);
+  max-height: 84vh;
+  width: auto;
+  border-radius: 14px;
+  box-shadow: 0 0 0 1.5px var(--marigold-soft), 0 30px 80px rgba(0, 0, 0, 0.55);
+}
+.lightbox-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(232, 201, 138, 0.6);
+  background: rgba(239, 232, 249, 0.08);
+  color: #efe8f9;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.lightbox-close:hover { background: rgba(239, 232, 249, 0.18); }
+
 /* ---------- moonlight band (dark closing section) ---------- */
 
 .moonlight {
@@ -1237,8 +1375,8 @@ main:has(.moonlight:last-child) + .site-footer { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .btn:hover, .program:hover, .exercise-card:hover, .event-card:hover { transform: none; }
-  .event-cal, .mail-card { transition: none; }
+  .btn:hover, .program:hover, .exercise-card:hover, .event-card:hover, .media-item:hover { transform: none; }
+  .event-cal, .mail-card, .media-item { transition: none; }
 }
 
 /* ---------- focus visibility ---------- */
@@ -1518,6 +1656,8 @@ select:focus-visible, textarea:focus-visible {
   .event-card { padding: 1.5rem 1.4rem; gap: 1.3rem; }
   .event-cal { width: 84px; }
   .event-day { font-size: 2.7rem; }
+  .past-event-head { gap: 1.3rem; align-items: flex-start; }
+  .media-item { height: min(240px, 62vw); }
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .booking-form { padding: 1.9rem 1.4rem; }
   .cred-grid { grid-template-columns: 1fr; }
