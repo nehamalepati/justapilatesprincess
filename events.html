@@ -70,7 +70,7 @@
         <div class="section-head">
           <span class="eyebrow"><span class="telugu">నేహా</span> · neha &nbsp;·&nbsp; events</span>
           <h2>come move with me, princess</h2>
-          <p>every event is a little love letter — slow intentional movement, something warm to sip, and a room full of
+          <p>every event is a little love letter: slow intentional movement, something warm to sip, and a room full of
             new friends. tap a date to rsvp on partiful, crowns provided as always 👑</p>
         </div>
         <div class="events-grid">
@@ -146,7 +146,7 @@
             <div class="event-info">
               <h3>natya &amp; nomz 💜🤎</h3>
               <p>sat, jul 25 · 12-2 pm et</p>
-              <p class="past-event-blurb">bharatanatyam hands, pilates core, and very good nomz — the desilates
+              <p class="past-event-blurb">bharatanatyam hands, pilates core, and very good nomz: the desilates
                 dream, out loud</p>
             </div>
           </div>
@@ -164,8 +164,8 @@
             <div class="event-info">
               <h3>pilates &amp; matcha 💜💚❤️</h3>
               <p>sat, jul 18 · 12-2 pm et</p>
-              <p class="past-event-blurb">the one that started it all — a slow, intentional flow with a killer ab
-                series, and matcha to toast it after</p>
+              <p class="past-event-blurb">the one that started it all: a slow, intentional flow and matcha to toast it
+                after</p>
             </div>
           </div>
           <div class="media-strip" data-event="pilates-matcha" data-title="pilates &amp; matcha"
@@ -206,7 +206,8 @@
             aria-hidden="true">·</span><span class="name-en">just a pilates princess</span></span></span>
       <span><a href="mailto:justapilatesprincess@gmail.com">justapilatesprincess@gmail.com</a> &nbsp;·&nbsp; <a
           href="mailing.html">join the mailing list 💌</a></span>
-      <span class="footer-legal">© 2026 Just A Pilates Princess LLC &nbsp;·&nbsp; <a href="privacy-policy.html">privacy policy</a> &nbsp;·&nbsp; <a href="terms.html">terms of use</a></span>
+      <span class="footer-legal">© 2026 Just A Pilates Princess LLC &nbsp;·&nbsp; <a href="privacy-policy.html">privacy
+          policy</a> &nbsp;·&nbsp; <a href="terms.html">terms of use</a></span>
       <span class="footer-note">Movement is not medical advice — if you're pregnant, postpartum, or recovering from
         injury, check in with your healthcare provider before starting a new practice 💜</span>
     </div>
@@ -220,11 +221,32 @@
     //    videos get a play button; photos open big when tapped.
     const PAST_EVENT_MEDIA = {
       "natya-nomz": [
-        // "images/events/natya-nomz/01.jpg",
-        // "images/events/natya-nomz/flow-clip.mp4",
+        // the flyer carousel, in order
+        "images/events/natya-nomz/flyer-1.jpg",
+        "images/events/natya-nomz/flyer-2.jpg",
+        "images/events/natya-nomz/flyer-3.jpg",
+        "images/events/natya-nomz/flyer-4.jpg",
+        "images/events/natya-nomz/flyer-5.jpg",
+        "images/events/natya-nomz/flyer-6.jpg",
+        "images/events/natya-nomz/flyer-7.jpg",
+        "images/events/natya-nomz/flyer-8.jpg",
       ],
       "pilates-matcha": [
-        // "images/events/pilates-matcha/01.jpg",
+        // the flyer carousel
+        "images/events/pilates-matcha/IMG_1879.jpg",
+        "images/events/pilates-matcha/IMG_1880.jpg",
+        "images/events/pilates-matcha/IMG_1881.jpg",
+        "images/events/pilates-matcha/IMG_1882.jpg",
+        "images/events/pilates-matcha/IMG_1883.jpg",
+        "images/events/pilates-matcha/IMG_1884.jpg",
+        // group photos
+        "images/events/pilates-matcha/group-1.jpg",
+        "images/events/pilates-matcha/group-2.jpg",
+        "images/events/pilates-matcha/group-3.jpg",
+        // reels
+        "images/events/pilates-matcha/video-1.mp4",
+        "images/events/pilates-matcha/video-2.mp4",
+        "images/events/pilates-matcha/video-3.mp4",
       ],
     };
   </script>
@@ -234,27 +256,44 @@
     (function () {
       let lightbox = null;
 
-      function openLightbox(src, alt) {
+      function closeLightbox() {
+        const playing = lightbox.querySelector("video");
+        if (playing) playing.pause();
+        lightbox.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      // opens a photo or a clip big, floating over the night
+      function openLightbox(src, alt, isVideo) {
         if (!lightbox) {
           lightbox = document.createElement("div");
           lightbox.className = "lightbox";
           lightbox.innerHTML =
-            '<button class="lightbox-close" aria-label="close photo">✕</button><img alt="">';
+            '<button class="lightbox-close" aria-label="close">✕</button><div class="lightbox-media"></div>';
           document.body.appendChild(lightbox);
-          const close = () => {
-            lightbox.classList.remove("open");
-            document.body.style.overflow = "";
-          };
           lightbox.addEventListener("click", (e) => {
-            if (e.target.tagName !== "IMG") close();
+            if (e.target === lightbox || e.target.classList.contains("lightbox-close")) closeLightbox();
           });
           document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && lightbox.classList.contains("open")) close();
+            if (e.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
           });
         }
-        const img = lightbox.querySelector("img");
-        img.src = src;
-        img.alt = alt;
+        const slot = lightbox.querySelector(".lightbox-media");
+        slot.innerHTML = "";
+        let media;
+        if (isVideo) {
+          media = document.createElement("video");
+          media.src = src;
+          media.controls = true;
+          media.autoplay = true;
+          media.playsInline = true;
+          media.setAttribute("aria-label", alt);
+        } else {
+          media = document.createElement("img");
+          media.src = src;
+          media.alt = alt;
+        }
+        slot.appendChild(media);
         lightbox.classList.add("open");
         document.body.style.overflow = "hidden";
         lightbox.querySelector(".lightbox-close").focus();
@@ -275,33 +314,86 @@
           return;
         }
 
-        files.forEach((src, i) => {
-          if (/\.(mp4|mov|webm|m4v)$/i.test(src)) {
-            const item = document.createElement("div");
-            item.className = "media-item media-item--video";
-            const video = document.createElement("video");
-            video.src = src;
-            video.controls = true;
-            video.playsInline = true;
-            video.preload = "metadata";
-            video.setAttribute("aria-label", title + " — video " + (i + 1));
-            video.addEventListener("error", () => item.remove());
-            item.appendChild(video);
-            strip.appendChild(item);
-          } else {
-            const item = document.createElement("button");
-            item.type = "button";
-            item.className = "media-item";
-            const img = document.createElement("img");
-            img.src = src;
-            img.loading = "lazy";
-            img.alt = title + " — photo " + (i + 1);
-            img.addEventListener("error", () => item.remove());
-            item.appendChild(img);
-            item.addEventListener("click", () => openLightbox(src, img.alt));
-            strip.appendChild(item);
-          }
-        });
+        // the strip loops: three identical copies sit side by side and the
+        // scroll position quietly teleports by one copy-width near the seams,
+        // so you can spin through the scrapbook forever in either direction
+        const loop = files.length > 2;
+        const copies = loop ? 3 : 1;
+
+        for (let c = 0; c < copies; c++) {
+          const clone = c > 0; // extra copies are hidden from screen readers & tab order
+          files.forEach((src, i) => {
+            if (/\.(mp4|mov|webm|m4v)$/i.test(src)) {
+              const item = document.createElement("div");
+              item.className = "media-item media-item--video";
+              if (clone) item.setAttribute("aria-hidden", "true");
+              const video = document.createElement("video");
+              video.src = src;
+              video.controls = true;
+              video.playsInline = true;
+              video.preload = "metadata";
+              video.setAttribute("aria-label", title + " — video " + (i + 1));
+              if (clone) video.tabIndex = -1;
+              video.addEventListener("error", () => item.remove());
+              const expand = document.createElement("button");
+              expand.type = "button";
+              expand.className = "media-expand";
+              expand.setAttribute("aria-label", "watch " + title + " video " + (i + 1) + " full size");
+              if (clone) expand.tabIndex = -1;
+              expand.innerHTML =
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3 h7 v7" /><line x1="21" y1="3" x2="13" y2="11" /><path d="M10 21 H3 v-7" /><line x1="3" y1="21" x2="11" y2="13" /></svg>';
+              expand.addEventListener("click", () => {
+                video.pause();
+                openLightbox(src, title + " — video " + (i + 1), true);
+              });
+              item.appendChild(video);
+              item.appendChild(expand);
+              strip.appendChild(item);
+            } else {
+              const item = document.createElement("button");
+              item.type = "button";
+              item.className = "media-item";
+              if (clone) {
+                item.setAttribute("aria-hidden", "true");
+                item.tabIndex = -1;
+              }
+              const img = document.createElement("img");
+              img.src = src;
+              img.decoding = "async";
+              img.alt = clone ? "" : title + " — photo " + (i + 1);
+              img.addEventListener("error", () => item.remove());
+              item.appendChild(img);
+              item.addEventListener("click", () => openLightbox(src, title + " — photo " + (i + 1), false));
+              strip.appendChild(item);
+            }
+          });
+        }
+
+        if (loop) {
+          // one copy-width, measured from the real layout so it stays correct
+          // while images are still loading in
+          const seam = () => {
+            const kids = strip.children;
+            if (kids.length < 3) return 0;
+            return kids[kids.length / 3].offsetLeft - kids[0].offsetLeft;
+          };
+          requestAnimationFrame(() => {
+            strip.scrollLeft = seam();
+          });
+          // image widths land after layout — re-anchor to the first tile once
+          // everything has loaded so the strip always opens on photo 1
+          window.addEventListener("load", () => { strip.scrollLeft = seam(); }, { once: true });
+          strip.addEventListener(
+            "scroll",
+            () => {
+              const S = seam();
+              if (!S || S <= strip.clientWidth) return; // not enough to loop
+              if (strip.scrollLeft < S * 0.5) strip.scrollLeft += S;
+              else if (strip.scrollLeft >= S * 1.5) strip.scrollLeft -= S;
+            },
+            { passive: true }
+          );
+        }
       });
 
       // one clip at a time — starting a video pauses any other that's playing

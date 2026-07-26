@@ -740,12 +740,13 @@ section { padding: 5.5rem 0; }
   max-width: 52ch;
 }
 
-/* horizontal film-strip of photos & clips — snaps gently, scrolls on touch */
+/* horizontal film-strip of photos & clips — loops forever, scrolls on touch.
+   (no scroll-snap: the loop quietly teleports near the seams, and snapping
+   would fight those jumps) */
 .media-strip {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
-  scroll-snap-type: x proximity;
   padding: 0.3rem 0.2rem 1.1rem;
   scrollbar-width: thin;
   scrollbar-color: var(--lilac-deep) transparent;
@@ -761,7 +762,6 @@ section { padding: 5.5rem 0; }
   padding: 0;
   border-radius: 14px;
   overflow: hidden;
-  scroll-snap-align: start;
   background: var(--lilac-tint);
   box-shadow: 0 0 0 1.5px rgba(232, 201, 138, 0.55), 0 10px 26px rgba(51, 34, 75, 0.14);
   cursor: zoom-in;
@@ -771,7 +771,27 @@ section { padding: 5.5rem 0; }
   transform: translateY(-3px);
   box-shadow: 0 0 0 1.5px var(--marigold-soft), 0 16px 34px rgba(51, 34, 75, 0.2);
 }
-.media-item--video { cursor: default; }
+.media-item--video { cursor: default; position: relative; }
+
+/* little gold expand button riding the corner of each clip */
+.media-expand {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(232, 201, 138, 0.7);
+  background: rgba(36, 23, 53, 0.55);
+  color: #efe8f9;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.media-expand:hover { background: rgba(36, 23, 53, 0.85); color: var(--marigold-soft); }
+
 .media-item img,
 .media-item video {
   height: 100%;
@@ -809,7 +829,8 @@ section { padding: 5.5rem 0; }
   padding: 3rem 1.2rem;
 }
 .lightbox.open { display: flex; }
-.lightbox img {
+.lightbox img,
+.lightbox video {
   max-width: min(1000px, 94vw);
   max-height: 84vh;
   width: auto;
