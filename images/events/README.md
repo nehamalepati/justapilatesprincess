@@ -2,6 +2,7 @@
 
 drop media for past events here, one folder per event:
 
+- `matcha-movement/` — matcha, movement, & mindfulness (aug 22, 2026)
 - `natya-nomz/` — natya & nomz (jul 25, 2026)
 - `pilates-matcha/` — pilates & matcha (jul 18, 2026)
 
