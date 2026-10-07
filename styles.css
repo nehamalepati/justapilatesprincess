@@ -1683,8 +1683,6 @@ select:focus-visible, textarea:focus-visible {
   .booking-form { padding: 1.9rem 1.4rem; }
   .cred-grid { grid-template-columns: 1fr; }
   .levels-grid { grid-template-columns: 1fr; }
-  .team-grid { grid-template-columns: 1fr; }
-  .team-portrait { width: 160px; height: 160px; }
   .testimonial blockquote { min-height: 0; margin-bottom: 1rem; }
   /* comfortable thumb targets for the quote pager */
   .testimonial-btn { width: 44px; height: 44px; }
@@ -1828,4 +1826,9 @@ select:focus-visible, textarea:focus-visible {
   color: var(--marigold);
   border-color: var(--marigold-soft);
   background: rgba(232, 201, 138, 0.1);
+}
+
+@media (max-width: 880px) {
+  .team-grid { grid-template-columns: 1fr; }
+  .team-portrait { width: 160px; height: 160px; }
 }
