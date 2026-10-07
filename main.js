@@ -22,26 +22,28 @@ if (navToggle && navLinks) {
 }
 
 // ---------- instagram dropdown (team page) ----------
-document.querySelectorAll(".ig-dropdown-toggle").forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const dropdown = btn.nextElementSibling;
-    const open = dropdown.classList.toggle("open");
-    btn.setAttribute("aria-expanded", String(open));
+document.addEventListener("click", (e) => {
+  const toggle = e.target.closest(".ig-dropdown-toggle");
+  if (toggle) {
+    e.preventDefault();
+    const dropdown = toggle.nextElementSibling;
+    const willOpen = !dropdown.classList.contains("open");
     document.querySelectorAll(".ig-dropdown.open").forEach((d) => {
-      if (d !== dropdown) {
-        d.classList.remove("open");
-        d.previousElementSibling.setAttribute("aria-expanded", "false");
-      }
+      d.classList.remove("open");
+      d.previousElementSibling.setAttribute("aria-expanded", "false");
     });
-  });
-});
-
-document.addEventListener("click", () => {
-  document.querySelectorAll(".ig-dropdown.open").forEach((d) => {
-    d.classList.remove("open");
-    d.previousElementSibling.setAttribute("aria-expanded", "false");
-  });
+    if (willOpen) {
+      dropdown.classList.add("open");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+    return;
+  }
+  if (!e.target.closest(".ig-dropdown")) {
+    document.querySelectorAll(".ig-dropdown.open").forEach((d) => {
+      d.classList.remove("open");
+      d.previousElementSibling.setAttribute("aria-expanded", "false");
+    });
+  }
 });
 
 // ---------- scroll reveals ----------
