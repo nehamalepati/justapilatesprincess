@@ -1799,7 +1799,7 @@ select:focus-visible, textarea:focus-visible {
   margin-top: 1.4rem;
 }
 
-.team-socials a {
+.team-socials > a {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -1811,18 +1811,18 @@ select:focus-visible, textarea:focus-visible {
   transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 }
 
-.team-socials a:hover {
+.team-socials > a:hover {
   color: var(--marigold);
   border-color: var(--marigold-soft);
   background: rgba(201, 139, 45, 0.08);
 }
 
-:root[data-theme="dark"] .team-socials a {
+:root[data-theme="dark"] .team-socials > a {
   background: rgba(169, 143, 212, 0.08);
   border-color: rgba(169, 143, 212, 0.25);
 }
 
-:root[data-theme="dark"] .team-socials a:hover {
+:root[data-theme="dark"] .team-socials > a:hover {
   color: var(--marigold);
   border-color: var(--marigold-soft);
   background: rgba(232, 201, 138, 0.1);
