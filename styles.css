@@ -1828,7 +1828,119 @@ select:focus-visible, textarea:focus-visible {
   background: rgba(232, 201, 138, 0.1);
 }
 
+/* ---------- instagram dropdown (team page) ---------- */
+
+.ig-dropdown-wrap {
+  position: relative;
+}
+
+.ig-dropdown-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--violet);
+  background: var(--lilac-wash);
+  border: 1.5px solid rgba(123, 94, 167, 0.25);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.ig-dropdown-toggle:hover {
+  color: var(--marigold);
+  border-color: var(--marigold-soft);
+  background: rgba(201, 139, 45, 0.08);
+}
+
+:root[data-theme="dark"] .ig-dropdown-toggle {
+  background: rgba(169, 143, 212, 0.08);
+  border-color: rgba(169, 143, 212, 0.25);
+}
+
+:root[data-theme="dark"] .ig-dropdown-toggle:hover {
+  color: var(--marigold);
+  border-color: var(--marigold-soft);
+  background: rgba(232, 201, 138, 0.1);
+}
+
+.ig-dropdown {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 190px;
+  background: var(--paper);
+  border: 1.5px solid var(--marigold-soft);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(51, 34, 75, 0.15);
+  padding: 0.45rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 10;
+}
+
+.ig-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 7px solid transparent;
+  border-top-color: var(--marigold-soft);
+}
+
+.ig-dropdown-wrap:hover .ig-dropdown,
+.ig-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ig-dropdown a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  padding: 0.55rem 1.1rem;
+  text-decoration: none;
+  color: var(--ink);
+  transition: background 0.12s ease;
+}
+
+.ig-dropdown a:hover {
+  background: rgba(201, 139, 45, 0.08);
+}
+
+:root[data-theme="dark"] .ig-dropdown a:hover {
+  background: rgba(232, 201, 138, 0.1);
+}
+
+.ig-dropdown-handle {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: var(--violet);
+}
+
+.ig-dropdown-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--marigold);
+}
+
 @media (max-width: 880px) {
   .team-grid { grid-template-columns: 1fr; }
   .team-portrait { width: 160px; height: 160px; }
+
+  .ig-dropdown-wrap:hover .ig-dropdown {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .ig-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+  }
 }

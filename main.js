@@ -21,6 +21,29 @@ if (navToggle && navLinks) {
   });
 }
 
+// ---------- instagram dropdown (team page) ----------
+document.querySelectorAll(".ig-dropdown-toggle").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const dropdown = btn.nextElementSibling;
+    const open = dropdown.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
+    document.querySelectorAll(".ig-dropdown.open").forEach((d) => {
+      if (d !== dropdown) {
+        d.classList.remove("open");
+        d.previousElementSibling.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+});
+
+document.addEventListener("click", () => {
+  document.querySelectorAll(".ig-dropdown.open").forEach((d) => {
+    d.classList.remove("open");
+    d.previousElementSibling.setAttribute("aria-expanded", "false");
+  });
+});
+
 // ---------- scroll reveals ----------
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealEls = document.querySelectorAll(".reveal");
