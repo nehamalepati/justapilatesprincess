@@ -1866,15 +1866,15 @@ select:focus-visible, textarea:focus-visible {
 
 .ig-dropdown {
   position: absolute;
-  bottom: calc(100% + 10px);
+  top: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%);
-  min-width: 190px;
+  min-width: 200px;
   background: var(--paper);
   border: 1.5px solid var(--marigold-soft);
   border-radius: 14px;
   box-shadow: 0 10px 30px rgba(51, 34, 75, 0.15);
-  padding: 0.45rem 0;
+  padding: 0.5rem 0;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s ease, visibility 0.2s ease;
@@ -1884,11 +1884,11 @@ select:focus-visible, textarea:focus-visible {
 .ig-dropdown::after {
   content: "";
   position: absolute;
-  top: 100%;
+  bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
   border: 7px solid transparent;
-  border-top-color: var(--marigold-soft);
+  border-bottom-color: var(--marigold-soft);
 }
 
 .ig-dropdown-wrap:hover .ig-dropdown,
@@ -1899,12 +1899,16 @@ select:focus-visible, textarea:focus-visible {
 
 .ig-dropdown a {
   display: flex;
-  align-items: baseline;
-  gap: 0.55rem;
-  padding: 0.55rem 1.1rem;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.6rem 1.2rem;
   text-decoration: none;
   color: var(--ink);
   transition: background 0.12s ease;
+}
+
+.ig-dropdown a + a {
+  border-top: 1px solid rgba(123, 94, 167, 0.12);
 }
 
 .ig-dropdown a:hover {
@@ -1918,16 +1922,16 @@ select:focus-visible, textarea:focus-visible {
 .ig-dropdown-handle {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   letter-spacing: 0.02em;
   color: var(--violet);
 }
 
 .ig-dropdown-label {
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   color: var(--marigold);
 }
 
