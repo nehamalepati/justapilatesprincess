@@ -1943,7 +1943,7 @@ select:focus-visible, textarea:focus-visible {
     opacity: 0;
     visibility: hidden;
   }
-  .ig-dropdown.open {
+  .ig-dropdown-wrap .ig-dropdown.open {
     opacity: 1;
     visibility: visible;
   }
