@@ -1683,6 +1683,8 @@ select:focus-visible, textarea:focus-visible {
   .booking-form { padding: 1.9rem 1.4rem; }
   .cred-grid { grid-template-columns: 1fr; }
   .levels-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  .team-portrait { width: 160px; height: 160px; }
   .testimonial blockquote { min-height: 0; margin-bottom: 1rem; }
   /* comfortable thumb targets for the quote pager */
   .testimonial-btn { width: 44px; height: 44px; }
@@ -1702,9 +1704,6 @@ select:focus-visible, textarea:focus-visible {
   .brand-name small { font-size: 0.74rem; letter-spacing: 0.2em; }
   .booking-form { padding: 1.7rem 1.1rem; }
   .modal { padding: 1.8rem 1.1rem 2rem; }
-  .team-member { flex-direction: column; text-align: center; }
-  .team-grid { grid-template-columns: 1fr; }
-  .team-portrait { width: 180px; height: 180px; }
 }
 
 /* ---------- team page ---------- */
