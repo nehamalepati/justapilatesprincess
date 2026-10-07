@@ -1721,7 +1721,7 @@ select:focus-visible, textarea:focus-visible {
   padding: 2.8rem 2rem 2.2rem;
   box-shadow: var(--shadow);
   text-align: center;
-  border-top: 3px solid var(--marigold-soft);
+  border: 1.5px solid var(--marigold-soft);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
