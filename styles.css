@@ -1712,6 +1712,11 @@ select:focus-visible, textarea:focus-visible {
   gap: 2rem;
 }
 
+.team-grid--solo {
+  grid-template-columns: minmax(0, 560px);
+  justify-content: center;
+}
+
 .team-card {
   background: var(--paper);
   border-radius: var(--radius);
@@ -1936,7 +1941,7 @@ select:focus-visible, textarea:focus-visible {
 }
 
 @media (max-width: 880px) {
-  .team-grid { grid-template-columns: 1fr; }
+  .team-grid, .team-grid--solo { grid-template-columns: 1fr; }
   .team-portrait { width: 160px; height: 160px; }
 
   .ig-dropdown-wrap:hover .ig-dropdown {
